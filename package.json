@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "axios": "^0.26.0",
+    "natural-compare-lite": "^1.4.0"
+  }
+}
