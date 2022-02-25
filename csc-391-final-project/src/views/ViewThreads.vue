@@ -6,7 +6,10 @@
 
 <script>
 export default {
-    name: '',
+    name: 'ViewThreads',
+    components: {
+
+    },
 };
 </script>
 
