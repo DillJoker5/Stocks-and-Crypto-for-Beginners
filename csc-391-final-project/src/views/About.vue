@@ -1,6 +1,6 @@
 <template>
     <span>
-
+        <h1>Placeholder for About Page</h1>
     </span>
 </template>
 
