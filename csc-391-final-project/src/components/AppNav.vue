@@ -21,10 +21,7 @@
 <script>
 /*
     Steps to get done
-
-    1) Create Template
-    2) Create styling
-    3) Verify all buttons work (will take to blank page currently)
+    1) Create styling
 */
     export default {
         name: 'AppNav',
