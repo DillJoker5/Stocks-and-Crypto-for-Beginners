@@ -17,7 +17,7 @@ const routes = [
       import("../views/About.vue"),
   },
   {
-    path: "/create-thread",
+    path: "/createThread",
     name: "Create Thread",
     component: () => 
       import("../views/CreateThread.vue"),
@@ -29,25 +29,25 @@ const routes = [
       import("../views/Login.vue"),
   },
   {
-    path: "/user-profile",
+    path: "/userProfile",
     name: "User Profile",
     component: () => 
       import("../views/UserProfile.vue"),
   },
   {
-    path: "/view-stock-crypto-table",
+    path: "/viewStockCryptoTable",
     name: "View Stock Crypto Table",
     component: () => 
       import("../views/ViewStockCryptoTable.vue"),
   },
   {
-    path: "/view-thread",
+    path: "/viewThread",
     name: "View Thread",
     component: () => 
       import("../views/ViewThread.vue"),
   },
   {
-    path: "/view-threads",
+    path: "/viewThreads",
     name: "View Threads",
     component: () => 
       import("../views/ViewThreads.vue"),
