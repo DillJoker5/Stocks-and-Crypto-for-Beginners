@@ -18,10 +18,6 @@
 </template>
 
 <script>
-/*
-    Steps to get done
-    1) Create styling
-*/
     export default {
         name: 'AppNav',
         data() {
