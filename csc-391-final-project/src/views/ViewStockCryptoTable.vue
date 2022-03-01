@@ -1,6 +1,7 @@
 <template>
     <span>
-        <h1>Placeholder for Stock Crypto Table</h1>
+        <br />
+        <h1 class='text-center'>Your Stock Crypto Table</h1>
         <stock-crypto-table />
         <comments-or-recommendations />
     </span>
