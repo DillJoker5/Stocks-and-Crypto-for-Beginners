@@ -1,19 +1,18 @@
 <template>
     <span>
-        <h1>
-            Test Login
-        </h1>
-    <login-form></login-form>
-            
+        <h1>Placeholder for Login Page</h1>
+        <login-form />
     </span>
 </template>
 
 <script>
-import LoginForm from '@/components/LoginForm.vue';
+import LoginForm from '../components/LoginForm.vue';
 
 export default {
-  components: { LoginForm },
     name: 'Login',
+    components: {
+        LoginForm
+    },
 };
 </script>
 
