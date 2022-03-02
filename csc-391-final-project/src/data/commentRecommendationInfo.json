@@ -1,80 +1,80 @@
 [
     {
         "id": 1111,
-        "name": "",
+        "name": "Dylan Chirigotis",
         "stockOrCrypto": "",
         "description": ""
     },
     {
         "id": 1112,
-        "name": "",
+        "name": "Tyler Fahney",
         "stockOrCrypto": "",
         "description": ""
     },
     {
         "id": 1113,
-        "name": "",
+        "name": "Erika Hendricks",
         "stockOrCrypto": "",
         "description": ""
     },
     {
         "id": 1114,
-        "name": "",
+        "name": "Samuel Meyer",
         "stockOrCrypto": "",
         "description": ""
     },
     {
         "id": 1115,
-        "name": "",
+        "name": "Logan Ascher",
         "stockOrCrypto": "",
         "description": ""
     },
     {
         "id": 1116,
-        "name": "",
+        "name": "Anna Kuether",
         "stockOrCrypto": "",
         "description": ""
     },
     {
         "id": 1117,
-        "name": "",
+        "name": "Aaron Miller",
         "stockOrCrypto": "",
         "description": ""
     },
     {
         "id": 1118,
-        "name": "",
+        "name": "John Karrow",
         "stockOrCrypto": "",
         "description": ""
     },
     {
         "id": 1119,
-        "name": "",
+        "name": "Hannah Hungerford",
         "stockOrCrypto": "",
         "description": ""
     },
     {
         "id": 1121,
-        "name": "",
+        "name": "Zach Hendricks",
         "stockOrCrypto": "",
         "description": ""
     },
     {
         "id": 1122,
-        "name": "",
+        "name": "Jessica Brewster",
         "stockOrCrypto": "",
         "description": ""
     },
     {
         "id": 1123,
-        "name": "",
+        "name": "Jeffrey Brown",
         "stockOrCrypto": "",
         "description": ""
     },
     {
         "id": 1124,
-        "name": "",
-        "stockOrCrypto": "",
-        "description": ""
+        "name": "Test",
+        "stockOrCrypto": "Test",
+        "description": "Test"
     }
 ]

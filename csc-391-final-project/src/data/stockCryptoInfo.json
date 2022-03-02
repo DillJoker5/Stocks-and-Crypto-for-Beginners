@@ -1,93 +1,106 @@
 [
     {
         "num": 1,
-        "symbol": "",
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": ""
+        "symbol": "^GSPC",
+        "current_price": 4322,
+        "opening_price": 4322,
+        "closing_price": 4306,
+        "date_bookmarked": "3/2/2022"
     },
     {
         "num": 2,
-        "symbol": "",
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": ""
+        "symbol": "^DJI",
+        "current_price": 33379,
+        "opening_price": 33379,
+        "closing_price": 33294,
+        "date_bookmarked": "3/1/2022"
     },
     {
         "num": 3,
-        "symbol": "",
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": ""
+        "symbol": "^IXIC",
+        "current_price": 13597,
+        "opening_price": 13597,
+        "closing_price": 13532,
+        "date_bookmarked": "3/3/2022"
     },
     {
         "num": 4,
-        "symbol": "",
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": ""
+        "symbol": "TSLA",
+        "current_price": 876,
+        "opening_price": 872,
+        "closing_price": 864,
+        "date_bookmarked": "4/3/2022"
     },
     {
         "num": 5,
-        "symbol": "",
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": ""
+        "symbol": "F",
+        "current_price": 20,
+        "opening_price": 17,
+        "closing_price": 16,
+        "date_bookmarked": "3/14/2022"
     },
     {
         "num": 6,
-        "symbol": "",
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": ""
+        "symbol": "DIS",
+        "current_price": 150,
+        "opening_price": 146,
+        "closing_price": 145,
+        "date_bookmarked": "3/19/2022"
     },
     {
         "num": 7,
-        "symbol": "",
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": ""
+        "symbol": "NFLX",
+        "current_price": 400,
+        "opening_price": 389,
+        "closing_price": 386,
+        "date_bookmarked": "5/9/2022"
     },
     {
         "num": 8,
-        "symbol": "",
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": ""
+        "symbol": "BTC-USD",
+        "current_price": 44371,
+        "opening_price": 44371,
+        "closing_price": 44371,
+        "date_bookmarked": "3/2/2022"
     },
     {
         "num": 9,
-        "symbol": "",
+        "symbol": "DOGE-USD",
+        "current_price": 2,
         "opening_price": 1,
         "closing_price": 1,
-        "date_bookmarked": ""
+        "date_bookmarked": "3/3/2022"
     },
     {
         "num": 10,
-        "symbol": "",
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": ""
+        "symbol": "ETH-USD",
+        "current_price": 2674,
+        "opening_price": 2969,
+        "closing_price": 2969,
+        "date_bookmarked": "2/11/2022"
     },
     {
         "num": 11,
-        "symbol": "",
+        "symbol": "ADA-USD",
+        "current_price": 2,
         "opening_price": 1,
         "closing_price": 1,
-        "date_bookmarked": ""
+        "date_bookmarked": "1/12/2022"
     },
     {
         "num": 12,
-        "symbol": "",
+        "symbol": "XLM-USD",
+        "current_price": 2,
         "opening_price": 1,
         "closing_price": 1,
-        "date_bookmarked": ""
+        "date_bookmarked": "1/18/2022"
     },
     {
         "num": 13,
-        "symbol": "",
+        "symbol": "TRX-USD",
+        "current_price": 2,
         "opening_price": 1,
         "closing_price": 1,
-        "date_bookmarked": ""
+        "date_bookmarked": "2/27/2022"
     }
 ]
