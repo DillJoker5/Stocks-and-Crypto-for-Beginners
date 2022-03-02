@@ -1,15 +1,17 @@
 <template>
+    <span>
     <v-data-table
         :headers='headers'
         :items='stockCryptoData'
         :items-per-page='10'
         class='elevation-1'
-    />
+    /><v-data-footer />
+    </span>
 </template>
 
 <script>
 import stockCryptoInfo from '@/data/stockCryptoInfo.json';
-
+// add name on Table
 export default {
     name: 'StockCryptoTable',
     data () {
