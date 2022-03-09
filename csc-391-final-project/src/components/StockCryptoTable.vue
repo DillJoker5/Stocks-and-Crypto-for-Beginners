@@ -16,8 +16,8 @@
             class='elevation-1'
             :footer-props="{
                 showCurrentPage: true,
-                prevIcon: 'mdi-arrow-left-bold',
-                nextIcon: 'mdi-arrow-right-bold',
+                prevIcon: 'mdi-arrow-left',
+                nextIcon: 'mdi-arrow-right',
                 showFirstLastPage: true,
                 itemsPerPageOptions: [10, 25, 50, -1],
             }"
@@ -42,7 +42,8 @@
             <template v-slot:item.favorite="{ item }">
                 <v-simple-checkbox 
                     v-model='item.favorite'
-                />
+                    color='gray'
+                ></v-simple-checkbox>
             </template>
         </v-data-table>
     </v-card>
@@ -55,6 +56,7 @@ import stockCryptoInfo from '@/data/stockCryptoInfo.json';
     Steps to Complete
     1) Fix icons in Table
     2) Style Table
+    3) Fix # row
 */
 export default {
     name: 'StockCryptoTable',
