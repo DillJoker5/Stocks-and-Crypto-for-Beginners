@@ -17,6 +17,7 @@ import commentOrRecommendationInfo from '@/data/commentRecommendationInfo.json';
 /*
     Steps to Complete
     1) Add Styling
+    2) Integrate Yahoo Finance API
 */
 
 export default {
