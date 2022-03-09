@@ -1,6 +1,6 @@
 <template>
     <v-card>
-        <v-card-title>
+        <v-card-title class='gray-darken-2--text blue lighten-3'>
             <v-text-field
                 v-model="search"
                 append-icon="mdi-magnify"
@@ -13,7 +13,7 @@
             :headers='headers'
             :items='stockCryptoData'
             :items-per-page='10'
-            class='elevation-1'
+            class='elevation-1 gray-darken-2--text blue lighten-3'
             :footer-props="{
                 showCurrentPage: true,
                 prevIcon: 'mdi-arrow-left',
@@ -30,6 +30,7 @@
             ]"
             multi-sort
             :search='search'
+            dense
         >
             <template v-slot:item.current_price="{ item }">
                 <v-chip
@@ -56,20 +57,13 @@ import stockCryptoInfo from '@/data/stockCryptoInfo.json';
     Steps to Complete
     1) Fix icons in Table
     2) Style Table
-    3) Fix # row
 */
 export default {
     name: 'StockCryptoTable',
     data () {
         return {
             headers: [
-                {
-                    text: '#',
-                    align: 'start',
-                    sortable: false,
-                    value: 'num',
-                },
-                { text: 'Symbol', value: 'symbol' },
+                { text: 'Symbol', align: "start", value: 'symbol' },
                 { text: 'Name (EN)', value: 'name' },
                 { text: 'Current Price ($)', value: 'current_price' },
                 { text: 'Last Opening Price ($)', value: 'opening_price' },
@@ -90,7 +84,3 @@ export default {
     }
 };
 </script>
-
-<style scoped>
-
-</style>

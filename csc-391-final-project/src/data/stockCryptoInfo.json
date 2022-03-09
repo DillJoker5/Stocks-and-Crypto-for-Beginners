@@ -1,6 +1,5 @@
 [
     {
-        "num": 1,
         "symbol": "^GSPC",
         "name": "S&P 500",
         "current_price": 4322,
@@ -10,7 +9,6 @@
         "favorite": true
     },
     {
-        "num": 2,
         "symbol": "^DJI",
         "name": "Dow Jones",
         "current_price": 33379,
@@ -20,7 +18,6 @@
         "favorite": false
     },
     {
-        "num": 3,
         "symbol": "^IXIC",
         "name": "NASDAQ",
         "current_price": 13597,
@@ -30,7 +27,6 @@
         "favorite": true
     },
     {
-        "num": 4,
         "symbol": "TSLA",
         "name": "Tesla",
         "current_price": 876,
@@ -40,7 +36,6 @@
         "favorite": true
     },
     {
-        "num": 5,
         "symbol": "F",
         "name": "Ford",
         "current_price": 20,
@@ -50,7 +45,6 @@
         "favorite": false
     },
     {
-        "num": 6,
         "symbol": "DIS",
         "name": "Walt Disney Co",
         "current_price": 150,
@@ -60,7 +54,6 @@
         "favorite": false
     },
     {
-        "num": 7,
         "symbol": "NFLX",
         "name": "Netflix",
         "current_price": 400,
@@ -70,7 +63,6 @@
         "favorite": false
     },
     {
-        "num": 8,
         "symbol": "BTC-USD",
         "name": "Bitcoin",
         "current_price": 44371,
@@ -80,7 +72,6 @@
         "favorite": true
     },
     {
-        "num": 9,
         "symbol": "DOGE-USD",
         "name": "Doge coin",
         "current_price": 2,
@@ -90,7 +81,6 @@
         "favorite": true
     },
     {
-        "num": 10,
         "symbol": "ETH-USD",
         "name": "Ethereum",
         "current_price": 2674,
@@ -100,7 +90,6 @@
         "favorite": false
     },
     {
-        "num": 11,
         "symbol": "ADA-USD",
         "name": "Cardano",
         "current_price": 2,
@@ -110,7 +99,6 @@
         "favorite": true
     },
     {
-        "num": 12,
         "symbol": "XLM-USD",
         "name": "Stellar",
         "current_price": 2,
@@ -120,7 +108,6 @@
         "favorite": false
     },
     {
-        "num": 13,
         "symbol": "TRX-USD",
         "name": "Tron",
         "current_price": 2,
