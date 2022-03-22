@@ -12,8 +12,7 @@
 </template>
 
 <script>
-import commentOrRecommendationInfo from '@/data/commentRecommendationInfo.json';
-
+import stockCryptoInfo from '../data/stockCryptoInfo.json';
 /*
     Steps to Complete
     1) Add Styling
@@ -24,12 +23,48 @@ export default {
     name: 'CommentsOrRecommendations',
     data() {
         return {
-            commentOrRecommendationData: commentOrRecommendationInfo
+            recommendationData: [],
+            insightData: [],
+        };
+    },
+    methods: {
+        async getData() {
+            try {
+                let yahooFinanceBaseUrl = 'https://yfapi.net';
+                const apiKey = 'TpjbaujVN99fiiPrSjvLx9edfTJfutFn187SsMYG';
+                for(let i = 0; i < stockCryptoInfo.length; i++) {
+                    let recommendationUrl = yahooFinanceBaseUrl + '/v6/finance/recommendationsbysymbol/' + stockCryptoInfo[i].symbol.toString();
+                    let insightsUrl = yahooFinanceBaseUrl + '/ws/insights/v1/finance/insights';
+
+                    let recommendationResponse = await this.$http.get(recommendationUrl, {
+                        headers: {
+                            'X-API-KEY': apiKey,
+                        },
+                        variables: {
+                            'symbol': stockCryptoInfo[i].symbol.toString(),
+                        }
+                    });
+
+                    this.recommendationData += recommendationResponse.finance.result;
+
+                    let insightResponse = await this.$http.get(insightsUrl, {
+                        headers: {
+                            'X-API-KEY': apiKey,
+                        },
+                        variables: {
+                            'symbol': stockCryptoInfo[i].symbol.toString(),
+                        },
+                    });
+
+                    this.insightData += insightResponse.finance.result;
+                }
+            } catch (error) {
+                throw new Error(error);
+            }
         }
+    },
+    created() {
+        this.getData();
     }
 };
 </script>
-
-<style scoped>
-
-</style>

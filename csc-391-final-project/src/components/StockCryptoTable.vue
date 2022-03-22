@@ -3,7 +3,6 @@
         <v-card-title class='gray-darken-2--text blue lighten-3'>
             <v-text-field
                 v-model="search"
-                append-icon="mdi-magnify"
                 label="Search"
                 single-line
                 hide-details
@@ -16,8 +15,6 @@
             class='elevation-1 gray-darken-2--text blue lighten-3'
             :footer-props="{
                 showCurrentPage: true,
-                prevIcon: 'mdi-arrow-left',
-                nextIcon: 'mdi-arrow-right',
                 showFirstLastPage: true,
                 itemsPerPageOptions: [10, 25, 50, -1],
             }"
@@ -32,7 +29,7 @@
             :search='search'
             dense
         >
-            <template v-slot:item.current_price="{ item }">
+            <template v-slot:[`item.current_price`]="{ item }">
                 <v-chip
                     :color="getCurrentPriceColor(item)"
                     dark
@@ -40,11 +37,13 @@
                     {{ item.current_price }}
                 </v-chip>
             </template>
-            <template v-slot:item.favorite="{ item }">
-                <v-simple-checkbox 
-                    v-model='item.favorite'
-                    color='gray'
-                ></v-simple-checkbox>
+            <template v-slot:[`item.favorite`]="{ item }">
+                <input
+                    type="checkbox"
+                    v-model="item.favorite"
+                    :value="item.favorite"
+                    disabled="true"
+                />
             </template>
         </v-data-table>
     </v-card>
@@ -56,7 +55,6 @@ import stockCryptoInfo from '@/data/stockCryptoInfo.json';
 /*
     Steps to Complete
     1) Fix icons in Table
-    2) Style Table
 */
 export default {
     name: 'StockCryptoTable',
