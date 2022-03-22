@@ -25,10 +25,6 @@
 
 <script>
 import stockCryptoInfo from '../data/stockCryptoInfo.json';
-/*
-    Steps to Complete
-    1) Add Styling
-*/
 
 export default {
     name: 'CommentsOrRecommendations',
