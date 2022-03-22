@@ -1,10 +1,10 @@
 <template>
-    <span>
+    <div class="table-background">
         <br />
         <h1 class='text-center'>Your Stock Crypto Table</h1>
         <stock-crypto-table />
         <comments-or-recommendations />
-    </span>
+    </div>
 </template>
 
 <script>
@@ -21,5 +21,7 @@ export default {
 </script>
 
 <style scoped>
-
+.table-background {
+    background-color:darkslategrey;
+}
 </style>

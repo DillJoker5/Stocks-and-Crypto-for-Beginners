@@ -52,10 +52,6 @@
 <script>
 import stockCryptoInfo from '@/data/stockCryptoInfo.json';
 
-/*
-    Steps to Complete
-    1) Fix icons in Table
-*/
 export default {
     name: 'StockCryptoTable',
     data () {

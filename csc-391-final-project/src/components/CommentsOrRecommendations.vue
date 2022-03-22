@@ -1,11 +1,23 @@
 <template>
     <v-container fluid>
         <v-row>
-            <v-col sm='12' md='4' v-for='commentOrRecommendation in commentOrRecommendationData' :key='commentOrRecommendation.id'>
-                <v-card-title>{{'Name: ' + commentOrRecommendation.name}}</v-card-title>
-                <v-card-text>{{'Username: ' + commentOrRecommendation.username}}</v-card-text>
-                <v-card-text>{{'Stock/Crypto Currency: ' + commentOrRecommendation.stockOrCrypto}}</v-card-text>
-                <v-card-text>{{'Comment: ' + commentOrRecommendation.description}}</v-card-text>
+            <v-col sm='12' md='3' v-for='recommendation in recommendationData' :key='recommendation.symbol'>
+                <v-card-title>Recommendations for {{recommendation.symbol}}</v-card-title>
+                <v-row v-for='symbol in recommendation.recommendedSymbols' :key='symbol.symbol'>
+                    <v-card-text>Symbol: {{symbol.symbol}}; Score: {{symbol.score}}</v-card-text>
+                </v-row>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col sm='12' md='3' v-for='insight in insightData' :key='insight.symbol'>
+                <v-card-title>Insights for {{insight.symbol}}</v-card-title>
+                 <v-card-text>Sector: {{insight.sector.sectorInfo}}</v-card-text>
+                <v-card-text>Valuation: {{insight.valuation.description}} at a {{insight.valuation.relativeValue.toLowerCase()}} from {{insight.valuation.provider}}</v-card-text>
+                <v-card-text>Last Report by {{insight.reports.provider}}: </v-card-text>
+                <v-card-text>{{insight.reports.summary}}</v-card-text>
+                <v-card-text>Published on {{convertPublishDate(insight.reports.publishedOn)}}</v-card-text>
+                <br>
+                <v-card-text>Final Recommendation from {{insight.recommendation.provider}} is to {{insight.recommendation.rating.toLowerCase()}} around a target price of {{insight.recommendation.targetPrice}}</v-card-text>
             </v-col>
         </v-row>
     </v-container>
@@ -16,7 +28,6 @@ import stockCryptoInfo from '../data/stockCryptoInfo.json';
 /*
     Steps to Complete
     1) Add Styling
-    2) Integrate Yahoo Finance API
 */
 
 export default {
@@ -32,7 +43,7 @@ export default {
             try {
                 let yahooFinanceBaseUrl = 'https://yfapi.net';
                 const apiKey = 'TpjbaujVN99fiiPrSjvLx9edfTJfutFn187SsMYG';
-                for(let i = 0; i < stockCryptoInfo.length; i++) {
+                for(let i = 0; i < 1; i++) { // 1 is hard-coded to make sure that the request limit isn't exceeded
                     let recommendationUrl = yahooFinanceBaseUrl + '/v6/finance/recommendationsbysymbol/' + stockCryptoInfo[i].symbol.toString();
                     let insightsUrl = yahooFinanceBaseUrl + '/ws/insights/v1/finance/insights';
 
@@ -45,7 +56,7 @@ export default {
                         }
                     });
 
-                    this.recommendationData += recommendationResponse.finance.result;
+                    this.recommendationData += recommendationResponse.data.finance.result;
 
                     let insightResponse = await this.$http.get(insightsUrl, {
                         headers: {
@@ -56,12 +67,17 @@ export default {
                         },
                     });
 
-                    this.insightData += insightResponse.finance.result;
+                    this.insightData += insightResponse.data.finance.result;
                 }
             } catch (error) {
                 throw new Error(error);
             }
-        }
+        },
+        
+        convertPublishDate(publishDate) {
+            const formattedPublishDate = new Date(publishDate)
+            return formattedPublishDate.toLocaleTimeString() + ' ' + formattedPublishDate.toLocaleDateString();
+        },
     },
     created() {
         this.getData();
