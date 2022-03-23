@@ -5,13 +5,12 @@
       <router-view>
       </router-view>
     </v-main>
-    <v-footer absolute app color='blue darken-4' dark class='footer'>
-      <p>
+    <v-footer absolute app color='blue darken-4' class='footer' dark>
         If you have any questions or concerns, please contact us here:
-        <a href='malito:tostdy4@gmail.com'>Dylan Chirigotis</a>
+        &nbsp;
+        <a href='mailto:tostdy4@gmail.com'>Dylan Chirigotis</a>
         &nbsp;
         <a href='mailto:tyler.fahney@gmail.com'>Tyler Fahney</a>
-      </p>
     </v-footer>
   </v-app>
 </template>
@@ -30,5 +29,6 @@ export default {
 <style>
 .footer {
   padding-top: 20px;
+  justify-content: center;
 }
 </style>
