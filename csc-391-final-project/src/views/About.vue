@@ -37,13 +37,15 @@ export default {
 
 <style scoped>
 .about {
-    margin-left: 25vw;
-    display: flexbox;
+    padding-left: 25vw;
+    padding-top: 5vh;
     background-color:darkslategrey;
     font: italic;
     font-weight: 600;
     font-family: fantasy;
     color:antiquewhite;
+    width: 100vw;
+    height: 100%;
 }
 
 .about li {
