@@ -1,5 +1,14 @@
 [
     {
+        "symbol": "DIS",
+        "name": "Walt Disney Co",
+        "current_price": 150,
+        "opening_price": 146,
+        "closing_price": 145,
+        "date_bookmarked": "3/19/2022",
+        "favorite": false
+    },
+    {
         "symbol": "^GSPC",
         "name": "S&P 500",
         "current_price": 4322,
@@ -42,15 +51,6 @@
         "opening_price": 17,
         "closing_price": 16,
         "date_bookmarked": "3/14/2022",
-        "favorite": false
-    },
-    {
-        "symbol": "DIS",
-        "name": "Walt Disney Co",
-        "current_price": 150,
-        "opening_price": 146,
-        "closing_price": 145,
-        "date_bookmarked": "3/19/2022",
         "favorite": false
     },
     {

@@ -1,17 +1,17 @@
 <template>
     <v-container fluid>
         <v-row>
-            <v-col sm='12' md='3' v-for='recommendation in recommendationData' :key='recommendation.symbol'>
-                <v-card-title>Recommendations for {{recommendation.symbol}}</v-card-title>
-                <v-row v-for='symbol in recommendation.recommendedSymbols' :key='symbol.symbol'>
+            <v-col sm='12' md='12' v-for='recommendation in recommendationData' :key='recommendation[0].symbol'>
+                <v-card-title>Recommendations for {{recommendation[0].symbol}}</v-card-title>
+                <v-row v-for='symbol in recommendation[0].recommendedSymbols' :key='symbol.symbol'>
                     <v-card-text>Symbol: {{symbol.symbol}}; Score: {{symbol.score}}</v-card-text>
                 </v-row>
             </v-col>
         </v-row>
         <v-row>
-            <v-col sm='12' md='3' v-for='insight in insightData' :key='insight.symbol'>
+            <v-col sm='12' md='12' v-for='insight in insightData' :key='insight.symbol'>
                 <v-card-title>Insights for {{insight.symbol}}</v-card-title>
-                 <v-card-text>Sector: {{insight.sector.sectorInfo}}</v-card-text>
+                <v-card-text>Sector: {{insight.companySnapshot.sectorInfo}}</v-card-text>
                 <v-card-text>Valuation: {{insight.valuation.description}} at a {{insight.valuation.relativeValue.toLowerCase()}} from {{insight.valuation.provider}}</v-card-text>
                 <v-card-text>Last Report by {{insight.reports.provider}}: </v-card-text>
                 <v-card-text>{{insight.reports.summary}}</v-card-text>
@@ -41,7 +41,7 @@ export default {
                 const apiKey = 'TpjbaujVN99fiiPrSjvLx9edfTJfutFn187SsMYG';
                 for(let i = 0; i < 1; i++) { // 1 is hard-coded to make sure that the request limit isn't exceeded
                     let recommendationUrl = yahooFinanceBaseUrl + '/v6/finance/recommendationsbysymbol/' + stockCryptoInfo[i].symbol.toString();
-                    let insightsUrl = yahooFinanceBaseUrl + '/ws/insights/v1/finance/insights';
+                    let insightsUrl = yahooFinanceBaseUrl + '/ws/insights/v1/finance/insights?symbol=' + stockCryptoInfo[i].symbol.toString();
 
                     let recommendationResponse = await this.$http.get(recommendationUrl, {
                         headers: {
@@ -52,7 +52,7 @@ export default {
                         }
                     });
 
-                    this.recommendationData += recommendationResponse.data.finance.result;
+                    this.recommendationData.push(recommendationResponse.data.finance.result);
 
                     let insightResponse = await this.$http.get(insightsUrl, {
                         headers: {
@@ -63,7 +63,7 @@ export default {
                         },
                     });
 
-                    this.insightData += insightResponse.data.finance.result;
+                    this.insightData.push(insightResponse.data.finance.result);
                 }
             } catch (error) {
                 throw new Error(error);
