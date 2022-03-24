@@ -1,17 +1,17 @@
 <template>
-    <span>
-        <h1>Placeholder for Threads</h1>
-        <thread />
-    </span>
+    <div>
+        <h1 class="text-center">Connect with fellow investors about your favorite topics below!</h1>
+        <thread-table />
+    </div>
 </template>
 
 <script>
-import Thread from '../components/Thread.vue';
+import ThreadTable from '../components/ThreadTable.vue';
 
 export default {
     name: 'ViewThreads',
     components: {
-        Thread,
+        ThreadTable,
     },
 };
 </script>

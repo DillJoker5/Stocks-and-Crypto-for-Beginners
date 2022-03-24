@@ -1,15 +1,15 @@
 <template>
-    <span>
+  <v-card>
 
-    </span>
+  </v-card>
 </template>
 
 <script>
 export default {
-    name: 'Thread',
-};
+    name: 'Thread'
+}
 </script>
 
-<style scoped>
+<style>
 
 </style>
