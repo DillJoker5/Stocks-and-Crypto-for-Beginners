@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="table-background">
+        <br />
         <h1 class="text-center">Connect with fellow investors about your favorite topics below!</h1>
         <thread-table />
     </div>
@@ -17,5 +18,9 @@ export default {
 </script>
 
 <style scoped>
-
+.table-background {
+    background-color: darkslategrey;
+    height: 100%;
+    padding: 20px;
+}
 </style>

@@ -25,6 +25,7 @@
             multi-sort
             :search='search'
             dense
+            @click:row="onThreadRowClick"
         >
             <template v-slot:[`item.favorite`]="{ item }">
                 <input
@@ -33,6 +34,8 @@
                     :value="item.favorite"
                     disabled="true" 
                 />
+            </template>
+            <template>
             </template>
         </v-data-table>
     </v-card>
@@ -60,6 +63,16 @@ export default {
         convertDateCreated(dateCreated) {
             const formattedDateCreated = new Date(dateCreated);
             return formattedDateCreated.toLocaleTimeString() + ' ' + formattedDateCreated.toLocaleDateString();
+        },
+        onThreadRowClick(val) {
+            const tr = val.target.parentNode;
+            const trId = tr.id;
+            this.$router.push({
+                name: 'Thread',
+                params: {
+                    trId
+                }
+            });
         }
     }
 };
