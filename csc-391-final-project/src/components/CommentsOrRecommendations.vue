@@ -12,12 +12,12 @@
             <v-col sm='12' md='12' v-for='insight in insightData' :key='insight.symbol'>
                 <v-card-title>Insights for {{insight.symbol}}</v-card-title>
                 <v-card-text>Sector: {{insight.companySnapshot.sectorInfo}}</v-card-text>
-                <v-card-text>Valuation: {{insight.valuation.description}} at a {{insight.valuation.relativeValue.toLowerCase()}} from {{insight.valuation.provider}}</v-card-text>
-                <v-card-text>Last Report by {{insight.reports.provider}}: </v-card-text>
-                <v-card-text>{{insight.reports.summary}}</v-card-text>
-                <v-card-text>Published on {{convertPublishDate(insight.reports.publishedOn)}}</v-card-text>
-                <br>
-                <v-card-text>Final Recommendation from {{insight.recommendation.provider}} is to {{insight.recommendation.rating.toLowerCase()}} around a target price of {{insight.recommendation.targetPrice}}</v-card-text>
+                <v-card-text>Valuation: {{insight.instrumentInfo.valuation.description}} with a discount of {{insight.instrumentInfo.valuation.discount}}. Information provided from {{insight.instrumentInfo.valuation.provider}}</v-card-text>
+                <v-card-text>Last Report by {{insight.reports[0].provider}} </v-card-text>
+                <v-card-text>Title: {{insight.reports[0].title}}</v-card-text>
+                <v-card-text>{{insight.reports[0].summary}}</v-card-text>
+                <v-card-text>Published at {{convertPublishDate(insight.reports[0].publishedOn)}}</v-card-text>
+                <v-card-text>Final recommendation from {{insight.instrumentInfo.recommendation.provider}} is to {{insight.instrumentInfo.recommendation.rating.toLowerCase()}} around a target price of {{insight.instrumentInfo.recommendation.targetPrice}}</v-card-text>
             </v-col>
         </v-row>
     </v-container>
@@ -64,6 +64,7 @@ export default {
                     });
 
                     this.insightData.push(insightResponse.data.finance.result);
+                    console.log(this.insightData);
                 }
             } catch (error) {
                 throw new Error(error);
@@ -72,7 +73,7 @@ export default {
         
         convertPublishDate(publishDate) {
             const formattedPublishDate = new Date(publishDate)
-            return formattedPublishDate.toLocaleTimeString() + ' ' + formattedPublishDate.toLocaleDateString();
+            return formattedPublishDate.toLocaleTimeString() + ', ' + formattedPublishDate.toLocaleDateString();
         },
     },
     created() {
