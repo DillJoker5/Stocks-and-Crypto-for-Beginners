@@ -7,6 +7,7 @@
                 single-line
                 hide-details
             ></v-text-field>
+            <input type="button" class="create-a-thread-button" value="Create A Thread" @click="toCreateAThread" />
         </v-card-title>
         <v-data-table
             :headers='headers'
@@ -72,11 +73,27 @@ export default {
                     valId
                 }
             });
+        },
+        toCreateAThread() {
+            this.$router.push({
+                name: 'Create Thread'
+            });
         }
     }
 };
 </script>
 
 <style scoped>
+* {
+    font-family: cursive;
+}
 
+.create-a-thread-button {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-left: 20px;
+}
 </style>
