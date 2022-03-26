@@ -1,0 +1,119 @@
+[
+    {
+        "symbol": "DIS",
+        "name": "Walt Disney Co",
+        "current_price": 150,
+        "opening_price": 146,
+        "closing_price": 145,
+        "date_bookmarked": "3/19/2022",
+        "favorite": false
+    },
+    {
+        "symbol": "^GSPC",
+        "name": "S&P 500",
+        "current_price": 4322,
+        "opening_price": 4322,
+        "closing_price": 4306,
+        "date_bookmarked": "3/2/2022",
+        "favorite": true
+    },
+    {
+        "symbol": "^DJI",
+        "name": "Dow Jones",
+        "current_price": 33379,
+        "opening_price": 33379,
+        "closing_price": 33294,
+        "date_bookmarked": "3/1/2022",
+        "favorite": false
+    },
+    {
+        "symbol": "^IXIC",
+        "name": "NASDAQ",
+        "current_price": 13597,
+        "opening_price": 13597,
+        "closing_price": 13532,
+        "date_bookmarked": "3/3/2022",
+        "favorite": true
+    },
+    {
+        "symbol": "TSLA",
+        "name": "Tesla",
+        "current_price": 876,
+        "opening_price": 872,
+        "closing_price": 864,
+        "date_bookmarked": "4/3/2022",
+        "favorite": true
+    },
+    {
+        "symbol": "F",
+        "name": "Ford",
+        "current_price": 20,
+        "opening_price": 17,
+        "closing_price": 16,
+        "date_bookmarked": "3/14/2022",
+        "favorite": false
+    },
+    {
+        "symbol": "NFLX",
+        "name": "Netflix",
+        "current_price": 400,
+        "opening_price": 389,
+        "closing_price": 386,
+        "date_bookmarked": "5/9/2022",
+        "favorite": false
+    },
+    {
+        "symbol": "BTC-USD",
+        "name": "Bitcoin",
+        "current_price": 44371,
+        "opening_price": 44371,
+        "closing_price": 44371,
+        "date_bookmarked": "3/2/2022",
+        "favorite": true
+    },
+    {
+        "symbol": "DOGE-USD",
+        "name": "Doge coin",
+        "current_price": 2,
+        "opening_price": 1,
+        "closing_price": 1,
+        "date_bookmarked": "3/3/2022",
+        "favorite": true
+    },
+    {
+        "symbol": "ETH-USD",
+        "name": "Ethereum",
+        "current_price": 2674,
+        "opening_price": 2969,
+        "closing_price": 2969,
+        "date_bookmarked": "2/11/2022",
+        "favorite": false
+    },
+    {
+        "symbol": "ADA-USD",
+        "name": "Cardano",
+        "current_price": 2,
+        "opening_price": 1,
+        "closing_price": 1,
+        "date_bookmarked": "1/12/2022",
+        "favorite": true
+    },
+    {
+        "symbol": "XLM-USD",
+        "name": "Stellar",
+        "current_price": 2,
+        "opening_price": 1,
+        "closing_price": 1,
+        "date_bookmarked": "1/18/2022",
+        "favorite": false
+    },
+    {
+        "symbol": "TRX-USD",
+        "name": "Tron",
+        "current_price": 2,
+        "opening_price": 1,
+        "closing_price": 1,
+        "date_bookmarked": "2/27/2022",
+        "favorite": false
+    }
+]
