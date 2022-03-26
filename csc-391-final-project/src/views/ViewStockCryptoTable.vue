@@ -23,5 +23,8 @@ export default {
 <style scoped>
 .table-background {
     background-color:darkslategrey;
+    height: 100%;
+    font-family: cursive;
+    font-weight: 600;
 }
 </style>

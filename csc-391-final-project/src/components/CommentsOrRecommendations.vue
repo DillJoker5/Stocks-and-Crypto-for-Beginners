@@ -1,23 +1,31 @@
 <template>
     <v-container fluid>
-        <v-row>
+        <v-row class="recommend blue lighten-3">
             <v-col sm='12' md='12' v-for='recommendation in recommendationData' :key='recommendation[0].symbol'>
-                <v-card-title>Recommendations for {{recommendation[0].symbol}}</v-card-title>
-                <v-row v-for='symbol in recommendation[0].recommendedSymbols' :key='symbol.symbol'>
-                    <v-card-text>Symbol: {{symbol.symbol}}; Score: {{symbol.score}}</v-card-text>
-                </v-row>
+                <details>
+                    <summary>
+                        Recommendations for {{recommendation[0].symbol}}
+                    </summary>
+                    <v-row v-for='symbol in recommendation[0].recommendedSymbols' :key='symbol.symbol'>
+                        <v-card-text>Symbol: {{symbol.symbol}}; Score: {{symbol.score}}</v-card-text>
+                    </v-row>
+                </details>
             </v-col>
         </v-row>
-        <v-row>
+        <v-row class="insight blue lighten-3">
             <v-col sm='12' md='12' v-for='insight in insightData' :key='insight.symbol'>
-                <v-card-title>Insights for {{insight.symbol}}</v-card-title>
-                <v-card-text>Sector: {{insight.companySnapshot.sectorInfo}}</v-card-text>
-                <v-card-text>Valuation: {{insight.instrumentInfo.valuation.description}} with a discount of {{insight.instrumentInfo.valuation.discount}}. Information provided from {{insight.instrumentInfo.valuation.provider}}</v-card-text>
-                <v-card-text>Last Report by {{insight.reports[0].provider}} </v-card-text>
-                <v-card-text>Title: {{insight.reports[0].title}}</v-card-text>
-                <v-card-text>{{insight.reports[0].summary}}</v-card-text>
-                <v-card-text>Published at {{convertPublishDate(insight.reports[0].publishedOn)}}</v-card-text>
-                <v-card-text>Final recommendation from {{insight.instrumentInfo.recommendation.provider}} is to {{insight.instrumentInfo.recommendation.rating.toLowerCase()}} around a target price of {{insight.instrumentInfo.recommendation.targetPrice}}</v-card-text>
+                <details>
+                    <summary>
+                        Insights for {{insight.symbol}}
+                    </summary>
+                    <v-card-text>Sector: {{insight.companySnapshot.sectorInfo}}</v-card-text>
+                    <v-card-text>Valuation: {{insight.instrumentInfo.valuation.description}} with a discount of {{insight.instrumentInfo.valuation.discount}}. Information provided from {{insight.instrumentInfo.valuation.provider}}</v-card-text>
+                    <v-card-text>Last Report by {{insight.reports[0].provider}} </v-card-text>
+                    <v-card-text>Title: {{insight.reports[0].title}}</v-card-text>
+                    <v-card-text>{{insight.reports[0].summary}}</v-card-text>
+                    <v-card-text>Published at {{convertPublishDate(insight.reports[0].publishedOn)}}</v-card-text>
+                    <v-card-text>Final recommendation from {{insight.instrumentInfo.recommendation.provider}} is to {{insight.instrumentInfo.recommendation.rating.toLowerCase()}} around a target price of {{insight.instrumentInfo.recommendation.targetPrice}}.</v-card-text>
+                </details>
             </v-col>
         </v-row>
     </v-container>
@@ -81,3 +89,15 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.recommend {
+    font-weight: 600;
+    font-family: cursive;
+}
+
+.insight {
+    font-weight: 600;
+    font-family: cursive;
+}
+</style>
