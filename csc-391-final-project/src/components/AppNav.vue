@@ -1,7 +1,6 @@
 <template>
     <span>
         <v-app-bar color='blue darken-4' dense app dark>
-            <v-app-bar-icon @click='drawer = !drawer' class='hidden-md-and-up'></v-app-bar-icon>
             <v-img max-height='38' max-width='80' :src='require("@/assets/stockCryptoLogo.png")' />
             <router-link to='/'>
                 <v-btn class='hidden-sm-and-down' to='/' depressed>Home</v-btn>

@@ -1,0 +1,93 @@
+[
+    {
+        "id": 1111,
+        "name": "Dylan Chirigotis",
+        "username": "dtc101",
+        "stockOrCrypto": "S&P 500",
+        "description": "Great stock! Truly keeps up with the market. 10/10!"
+    },
+    {
+        "id": 1112,
+        "name": "Tyler Fahney",
+        "username": "fahnz",
+        "stockOrCrypto": "Tesla",
+        "description": "Very crazy stock that will most likely continue to overperform. A little risky but worth it!"
+    },
+    {
+        "id": 1113,
+        "name": "Erika Hendricks",
+        "username": "erick200",
+        "stockOrCrypto": "Ford",
+        "description": "Ew Ford. 0/10"
+    },
+    {
+        "id": 1114,
+        "name": "Samuel Meyer",
+        "username": "smeyer",
+        "stockOrCrypto": "Doge coin",
+        "description": "I love doge and doge coin. 8/10!"
+    },
+    {
+        "id": 1115,
+        "name": "Logan Ascher",
+        "username": "logurt1999",
+        "stockOrCrypto": "Netflix",
+        "description": "I love watching netflix and making fun buying the stock! Overall, 9/10!"
+    },
+    {
+        "id": 1116,
+        "name": "Anna Kuether",
+        "username": "arkue",
+        "stockOrCrypto": "Walt Disney Co.",
+        "description": "We love Disney movies and Disney in general! Love being able to invest in my Disney princesses! 11/10."
+    },
+    {
+        "id": 1117,
+        "name": "Aaron Miller",
+        "username": "amiller111",
+        "stockOrCrypto": "Bitcoin",
+        "description": "The biggest and baddest cryptocurrency out there!"
+    },
+    {
+        "id": 1118,
+        "name": "John Karrow",
+        "username": "karrow",
+        "stockOrCrypto": "Tron",
+        "description": "Who heard of this before? DO NOT INVEST IN THIS!"
+    },
+    {
+        "id": 1119,
+        "name": "Hannah Hungerford",
+        "username": "hEvan",
+        "stockOrCrypto": "Bitcoin",
+        "description": "What's cryptocurrency? 0/10"
+    },
+    {
+        "id": 1121,
+        "name": "Zach Hendricks",
+        "username": "zrick",
+        "stockOrCrypto": "NASDAQ",
+        "description": "I only track this stock and everything else is garbage! 10/10."
+    },
+    {
+        "id": 1122,
+        "name": "Jessica Brewster",
+        "username": "jBrewster",
+        "stockOrCrypto": "Dow Jones",
+        "description": "Love learning about stocks and cryptocurrencies with this site. Especially Dow Jones!"
+    },
+    {
+        "id": 1123,
+        "name": "Jeffrey Brown",
+        "username": "jBrown",
+        "stockOrCrypto": "Ethereum",
+        "description": "My personal favorite cryptocurrency in the market right now! 10/10"
+    },
+    {
+        "id": 1124,
+        "name": "Test",
+        "username": "Test",
+        "stockOrCrypto": "Test",
+        "description": "Test"
+    }
+]
