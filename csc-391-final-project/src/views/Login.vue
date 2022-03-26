@@ -1,7 +1,6 @@
 <template>
     <span>
-        <h1>Placeholder for Login Page</h1>
-        <login-form />
+        <login-form/>
     </span>
 </template>
 
@@ -16,6 +15,3 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>

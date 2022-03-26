@@ -1,36 +1,29 @@
 <template>
-    <span>
-        <div id="login">
-            <form>
-                <h3>Sign in</h3>
-                <div class="form-group">
-                    <label>Email address</label>
-                    <input type ="email" placeholder="Email">
-                    <label>Password</label>
-                    <input type ="password" placeholder="Password">
-                    <v-btn>Login</v-btn>
-                </div>
-            </form>
+   <span>
+         <h1> Login here</h1>
+        <form class="login" @submit.prevent="login">
+            <label>Username</label>
+            <input required v-model="username" type ="text" placeholder="Username"/>
+            <label>Password</label>
+            <input required v-model="password" type="password" placeholder="Password"/>
+            <hr/>
+            <button type="submit">Login</button>
 
-        </div>
-    </span>
+        </form>
+   </span>
 </template>
 
 <script>
 export default {
     name: 'LoginForm',
-};
+    data(){
+        return{
+            email: '',
+        }
+        
+    }
+    
+}
+    
 </script>
 
-<style scoped>
-
-input[type=email], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-</style>
