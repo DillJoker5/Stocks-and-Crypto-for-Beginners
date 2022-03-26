@@ -65,12 +65,11 @@ export default {
             return formattedDateCreated.toLocaleTimeString() + ' ' + formattedDateCreated.toLocaleDateString();
         },
         onThreadRowClick(val) {
-            const tr = val.target.parentNode;
-            const trId = tr.id;
+            const valId = val.id;
             this.$router.push({
-                name: 'Thread',
+                name: 'View Thread',
                 params: {
-                    trId
+                    valId
                 }
             });
         }
