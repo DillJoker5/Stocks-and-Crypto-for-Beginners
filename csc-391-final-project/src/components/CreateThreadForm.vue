@@ -1,50 +1,49 @@
 <template>
-    <v-form class="create-a-thread-form">
-        <v-text-field
-            v-model="name"
-            :error-messages="nameErrors"
-            :counter="50"
-            label="Name"
-            required
-            @input="$v.name.$touch()"
-            @blur="$v.name.$touch()"
-        ></v-text-field>
-        <v-text-field
-            v-model="threadOwner"
-            :error-messages="threadOwnerErrors"
-            :counter="50"
-            label="Thread Owner"
-            required
-            @input="$v.threadOwner.$touch()"
-            @blur="$v.threadOwner.$touch()"
-        ></v-text-field>
-        <v-text-field
-            v-model="description"
-            :error-messages="descriptionErrors"
-            :counter="200"
-            label="Description of Thread"
-            required
-            @input="$v.description.$touch()"
-            @blur="$v.description.$touch()"
-        ></v-text-field>
-        <v-btn
-            class="mr-4"
-            @click="submit"
-        >Create</v-btn>
-        <v-btn
-            @click="clear"
-        >Cancel</v-btn>
-    </v-form>
+    <div>
+        <p v-if="error">{{error}}</p>
+        <v-form class="create-a-thread-form">
+            <v-text-field
+                v-model="name"
+                :error-messages="nameErrors"
+                :counter="50"
+                label="Name"
+                required
+                @input="$v.name.$touch()"
+                @blur="$v.name.$touch()"
+            ></v-text-field>
+            <v-text-field
+                v-model="threadOwner"
+                :error-messages="threadOwnerErrors"
+                :counter="50"
+                label="Thread Owner"
+                required
+                @input="$v.threadOwner.$touch()"
+                @blur="$v.threadOwner.$touch()"
+            ></v-text-field>
+            <v-text-field
+                v-model="description"
+                :error-messages="descriptionErrors"
+                :counter="200"
+                label="Description of Thread"
+                required
+                @input="$v.description.$touch()"
+                @blur="$v.description.$touch()"
+            ></v-text-field>
+            <v-btn
+                class="mr-4"
+                @click="submit"
+            >Create</v-btn>
+            <v-btn
+                @click="clear"
+            >Cancel</v-btn>
+        </v-form>
+    </div>
 </template>
 
 <script>
 import { validationMixin } from 'vuelidate';
 import { required, maxLength } from 'vuelidate/lib/validators';
-/*
-    To Do List
-    1) Develop Cancel Function
-    2) Develop Create Function
-*/
+
 export default {
     name: 'CreateThreadForm',
 
@@ -61,6 +60,7 @@ export default {
             name: '',
             threadOwner: '',
             description: '',
+            error: '',
         }
     },
 
@@ -91,16 +91,28 @@ export default {
     methods: {
         submit() {
             this.$v.$touch();
-            this.$router.push({
-                name: 'View Threads'
-            });
+            // query database
+            if (this.name) { // successful query
+                this.$router.push({
+                    name: 'View Threads'
+                });
+            } else {
+                this.error = "An error has occurred";
+                // display error message
+            }
         },
 
         clear() {
-            this.$v.$reset();
-            this.name = '';
-            this.threadOwner = '';
-            this.description = '';
+            if(this.name === '' && this.threadOwner === '' && this.description === '') {
+                this.$router.push({
+                    name: '/'
+                });
+            } else {
+                this.$v.$reset();
+                this.name = '';
+                this.threadOwner = '';
+                this.description = '';
+                }
         },
     }
 };
