@@ -1,9 +1,39 @@
 <template>
-    <v-form>
+    <v-form class="create-a-thread-form">
         <v-text-field
+            v-model="name"
+            :error-messages="nameErrors"
+            :counter="50"
+            label="Name"
+            required
+            @input="$v.name.$touch()"
+            @blur="$v.name.$touch()"
         ></v-text-field>
         <v-text-field
+            v-model="threadOwner"
+            :error-messages="threadOwnerErrors"
+            :counter="50"
+            label="Thread Owner"
+            required
+            @input="$v.threadOwner.$touch()"
+            @blur="$v.threadOwner.$touch()"
         ></v-text-field>
+        <v-text-field
+            v-model="description"
+            :error-messages="descriptionErrors"
+            :counter="200"
+            label="Description of Thread"
+            required
+            @input="$v.description.$touch()"
+            @blur="$v.description.$touch()"
+        ></v-text-field>
+        <v-btn
+            class="mr-4"
+            @click="submit"
+        >Create</v-btn>
+        <v-btn
+            @click="clear"
+        >Cancel</v-btn>
     </v-form>
 </template>
 
@@ -12,13 +42,8 @@ import { validationMixin } from 'vuelidate';
 import { required, maxLength } from 'vuelidate/lib/validators';
 /*
     To Do List
-    1) Create Form
-    2) Style Form
-    3) Upon Validation go to Threads Page
-
-    Name
-    Thread Owner
-    Description
+    1) Develop Cancel Function
+    2) Develop Create Function
 */
 export default {
     name: 'CreateThreadForm',
@@ -48,15 +73,46 @@ export default {
             return errors;
         },
         threadOwnerErrors() {
-
+            const errors = [];
+            if (!this.$v.threadOwner.$dirty) return errors;
+            !this.$v.threadOwner.maxLength && errors.push('Thread Owner must be 50 characters or less.');
+            !this.$v.threadOwner.maxLength && errors.push('Thread Owner field is required.');
+            return errors;
         },
         descriptionErrors() {
-            
+            const errors = [];
+            if (!this.$v.description.$dirty) return errors;
+            !this.$v.description.maxLength && errors.push('Description must be 200 characters or less.');
+            !this.$v.description.maxLength && errors.push('Description field is required.');
+            return errors;
         }
+    },
+
+    methods: {
+        submit() {
+            this.$v.$touch();
+            this.$router.push({
+                name: 'View Threads'
+            });
+        },
+
+        clear() {
+            this.$v.$reset();
+            this.name = '';
+            this.threadOwner = '';
+            this.description = '';
+        },
     }
 };
 </script>
 
 <style scoped>
-
+.create-a-thread-form {
+    padding: 20px;
+    background-color: white;
+    border-style: dashed;
+    border-radius: 10px;
+    border-width: 3px;
+    margin: 3vw 3vh 3vw 3vh;
+}
 </style>

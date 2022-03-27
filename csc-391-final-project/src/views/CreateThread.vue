@@ -21,5 +21,6 @@ export default {
     height: 100%;
     font-weight: 600;
     font-family: cursive;
+    padding-top: 25px;
 }
 </style>
