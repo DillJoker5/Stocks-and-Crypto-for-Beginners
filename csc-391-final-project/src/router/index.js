@@ -51,6 +51,18 @@ const routes = [
     name: "View Threads",
     component: () => 
       import("../views/ViewThreads.vue"),
+  },
+  {
+    path: "/forgot-password",
+    name: "forgot-password",
+    component: () =>
+      import("../components/ForgotPassword.vue")
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: () =>
+      import("../components/Register.vue")
   }
 ];
 

@@ -14,4 +14,9 @@ export default {
     },
 };
 </script>
-
+ <style scoped>
+ 
+ .login h1 {
+    margin-left: -25vw;
+}
+ </style>
