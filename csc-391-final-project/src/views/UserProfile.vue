@@ -24,5 +24,6 @@ export default {
     background-color: darkslategrey;
     height: 100%;
     padding: 20px;
+    font-family: cursive;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="vue-tempalte">
+    <div class="forgotpassword">
         <form>
             <h3>Forgot Password</h3>
  
@@ -21,3 +21,13 @@
         }
     }
 </script>
+
+<style scoped> 
+.forgotpassword {
+    background-color: darkslategrey;
+    height: 100%;
+    padding: 20px;
+    font-family: cursive;
+    text-align: center;
+}
+</style>

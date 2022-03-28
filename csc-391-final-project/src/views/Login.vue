@@ -1,6 +1,9 @@
 <template>
     <span>
-        <login-form/>
+        <div class="login">
+            <login-form/>
+        </div>
+        
     </span>
 </template>
 
@@ -15,8 +18,13 @@ export default {
 };
 </script>
  <style scoped>
- 
- .login h1 {
-    margin-left: -25vw;
+ .login {
+    background-color: darkslategrey;
+    height: 100%;
+    padding: 20px;
+    font-family: cursive;
 }
+
+ 
+
  </style>

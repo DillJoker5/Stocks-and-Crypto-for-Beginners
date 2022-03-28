@@ -11,7 +11,7 @@
             <v-btn class='hidden-sm-and-down' to='/createThread' depressed>Create A Thread</v-btn>
             <v-btn class='hidden-sm-and-down' to='/viewStockCryptoTable' depressed>Stocks and Crypto</v-btn>
             <v-btn class='hidden-sm-and-down' to='/userProfile' depressed>User Profile</v-btn>
-            <v-btn class='hidden-sm-and-down' to='/login' depressed>Register</v-btn>
+            <v-btn class='hidden-sm-and-down' to='/login' depressed>Login</v-btn>
         </v-app-bar>
     </span>
 </template>

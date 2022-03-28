@@ -1,5 +1,5 @@
 <template>
-    <div class="vue-tempalte">
+    <div class="register">
         <form>
             <h3>Sign Up</h3>
  
@@ -24,7 +24,7 @@
  
             <button type="submit" class="btn btn-dark btn-lg btn-block">Sign Up</button>
  
-            <p class="forgot-password text-right">
+            <p class="forgot-password text-center">
                 Already registered 
                 <router-link :to="{name: 'Login'}">sign in?</router-link>
             </p>
@@ -39,3 +39,15 @@
         }
     }
 </script>
+<style scoped>
+.register {
+    background-color: darkslategrey;
+    height: 100%;
+    padding: 20px;
+    font-family: cursive;
+    text-align: center;
+
+}
+
+ 
+</style>
