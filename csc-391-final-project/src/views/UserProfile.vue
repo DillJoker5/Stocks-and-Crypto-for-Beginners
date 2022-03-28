@@ -1,15 +1,28 @@
 <template>
     <span>
-        <h1>Placeholder for User Profile</h1>
+        <div class="profile">
+            <profile/>
+        </div>
+        
     </span>
 </template>
 
 <script>
+import Profile from '../components/Profile.vue';
+
 export default {
-    name: 'User Profile',
+  name: 'User Profile',
+  components: { 
+      Profile 
+    },
+    
 };
 </script>
 
 <style scoped>
-
+.profile {
+    background-color: darkslategrey;
+    height: 100%;
+    padding: 20px;
+}
 </style>
