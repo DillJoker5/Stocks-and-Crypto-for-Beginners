@@ -1,0 +1,172 @@
+[
+    {
+        "id": "20001",
+        "name": "Is Tesla's Stock worth it?",
+        "thread_owner": "Dylan Chirigotis",
+        "description": "A thread about whether Tesla's Stock should be bought",
+        "date_created": "3/24/2022",
+        "favorite": true,
+        "comments": [
+            {
+                "owner": "Test",
+                "text": "Do not buy Tesla's stock it's a ripoff!"
+            },
+            {
+                "owner": "Anna Kuether",
+                "text": "DO IT"
+            },
+            {
+                "owner": "Samuel Meyer",
+                "text": "Wait a little bit before buying it"
+            },
+            {
+                "owner": "Hannah Hungerford",
+                "text": "What's Tesla?"
+            }
+        ]
+    },
+    {
+        "id": "20002",
+        "name": "What exactly is the stock market?",
+        "thread_owner": "Erika Fahney",
+        "description": "A thread about the basics of the stock market",
+        "date_created": "4/26/2022",
+        "favorite": false,
+        "comments": [
+            {
+                "owner": "Tyler Fahney",
+                "text": "Don't worry about it"
+            }
+        ]
+    },
+    {
+        "id": "20003",
+        "name": "What is crypto?",
+        "thread_owner": "Anna Kuether",
+        "description": "A thread about the basics of crypto currency",
+        "date_created": "4/2/2022",
+        "favorite": true,
+        "comments": []
+    },
+    {
+        "id": "20004",
+        "name": "Can someone please explain the S&P 500 to me?",
+        "thread_owner": "Tyler Fahney",
+        "description": "A thread about the S&P 500",
+        "date_created": "3/23/2022",
+        "favorite": false,
+        "comments": [
+            {
+                "owner": "Dylan Chirigotis",
+                "text": "It is a group of the 500 best performing stocks"
+            },
+            {
+                "owner": "Tyler Fahney",
+                "text": "Which stocks are those?"
+            }
+        ]
+    },
+    {
+        "id": "20005",
+        "name": "What is doge coin?",
+        "thread_owner": "Brandon Schmidt",
+        "description": "A thread about Doge Coin",
+        "date_created": "6/22/2023",
+        "favorite": false,
+        "comments": [
+            {
+                "owner": "Brandon Schmidt",
+                "text": "Guys seriously what is doge coin?"
+            },
+            {
+                "owner": "Logan Ascher",
+                "text": "A coin with a dog on it"
+            }
+        ]
+    },
+    {
+        "id": "20006",
+        "name": "Is it even worth it to invest in crypto or the stock market?",
+        "thread_owner": "Anna Kuether",
+        "description": "A thread about how investing for beginners",
+        "date_created": "4/3/2022",
+        "favorite": true,
+        "comments": [
+            {
+                "owner": "Anna Kuether",
+                "text": "Should I invest in the stock market or crypto?"
+            },
+            {
+                "owner": "Dylan Chirigotis",
+                "text": "Starting to invest from a young age is a very intelligent thing to do"
+            },
+            {
+                "owner": "Logan Ascher",
+                "text": "The power of compound interest is crazy"
+            }, 
+            {
+                "owner": "Tyler Fahney",
+                "text": "Invest in crypto over the stock market"
+            }
+        ]
+    },
+    {
+        "id": "20007",
+        "name": "What is an NFT?",
+        "thread_owner": "Samuel Meyer",
+        "description": "A thread about the basics of NFTs",
+        "date_created": "5/1/2021",
+        "favorite": true,
+        "comments": [
+            {
+                "owner": "Samuel Meyer",
+                "text": "What is an ETF guys?"
+            },
+            {
+                "owner": "Erika Fahney",
+                "text": "Who knows man"
+            }
+        ]
+    },
+    {
+        "id": "20008",
+        "name": "What is an ETF?",
+        "thread_owner": "Michael Kuether",
+        "description": "A thread about the basics of an ETF",
+        "date_created": "2/24/2021",
+        "favorite": false,
+        "comments": [
+            {
+                "owner": "Michael Kuether",
+                "text": "Ayo so what's an ETF?"
+            }
+        ]
+    },
+    {
+        "id": "20009",
+        "name": "What is a bokerage account?",
+        "thread_owner": "Mitchell Wohlk",
+        "description": "A thread about the basics of a bokerage account",
+        "date_created": "9/7/2023",
+        "favorite": false,
+        "comments": []
+    },
+    {
+        "id": "20010",
+        "name": "Test",
+        "thread_owner": "Dylan Chirigotis",
+        "description": "A thread about test",
+        "date_created": "3/3/2024",
+        "favorite": true,
+        "comments": [
+            {
+                "owner": "Test",
+                "text": "Testy testy 333 1111"
+            },
+            {
+                "owner": "Testy Test",
+                "text": "{}AJDPSGHSDOIFH)Q#*RGBFDS"
+            }
+        ]
+    }
+]

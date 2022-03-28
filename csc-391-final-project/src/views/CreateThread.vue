@@ -1,8 +1,8 @@
 <template>
-    <span>
-        <h1>Placeholder for Create A Thread Page</h1>
+    <div class="create-a-thread">
+        <h1 class="text-center">Create Your Own Personal Thread</h1>
         <create-thread-form />
-    </span>
+    </div>
 </template>
 
 <script>
@@ -16,5 +16,11 @@ export default {
 </script>
 
 <style scoped>
-
+.create-a-thread {
+    background-color: darkslategray;
+    height: 100%;
+    font-weight: 600;
+    font-family: cursive;
+    padding-top: 25px;
+}
 </style>

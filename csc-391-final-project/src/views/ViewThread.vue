@@ -1,8 +1,8 @@
 <template>
-    <span>
-        <h1>Placeholder for Thread</h1>
+    <div class="form-background">
+        <br />
         <thread />
-    </span>
+    </div>
 </template>
 
 <script>
@@ -17,5 +17,9 @@ export default {
 </script>
 
 <style scoped>
-
+.form-background {
+    background-color: darkslategrey;
+    height: 100%;
+    padding: 20px;
+}
 </style>
