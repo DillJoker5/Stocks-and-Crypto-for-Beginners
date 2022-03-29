@@ -6,11 +6,14 @@
                     <tr>
                         <th>Username:</th>
                         <td>{{user.username}}</td>
+                        
                     </tr>
+                    
                     <tr>
                         <th>Email:</th>
                         <td>{{user.email}}</td>
                     </tr>
+                    
                     <tr>
                         <th>Stocks:</th>
                         <td>{{user.stocks}}</td>

@@ -25,6 +25,6 @@ export default {
     font-family: cursive;
 }
 
- 
+
 
  </style>

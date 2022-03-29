@@ -1,24 +1,25 @@
 <template>
    <span>
-       <div class= 'login'>
-            <h1> Login here</h1>
-            <form class="logins" @submit.prevent="login">
-            <label>Username</label>
-            <input required v-model="username" type ="text" placeholder="Username"/>
-            <label>Password</label>
-            <input required v-model="password" type="password" placeholder="Password"/>
-            <hr/>
-            <button type="submit" class="login-button">Login</button>
-            <p class="forgot-password text-center mt-2 mb-4">
-            <router-link to="/forgot-password">Forgot password?</router-link>
-            </p>
-            <p class="register text-center mt-2 mb-4">
-            <router-link to="/register">Register?</router-link>
-            </p>
-            </form>
-             
-        </div>
-   </span>
+       <h1> Login here</h1>
+        
+            <div class= 'login'>    
+                <form class="logins" @submit.prevent="login">
+                <label>Username</label>
+                <input required v-model="username" type ="text" placeholder="Username" class="white-color"/>
+                <label>Password</label>
+                <input required v-model="password" type="password" placeholder="Password"/>
+                <hr/>
+                <v-btn type="submit" class='hidden-sm-and-down' color='white' depressed>Login</v-btn>
+                <p class="forgot-password text-center mt-2 mb-4">
+                <router-link to="/forgot-password">Forgot password?</router-link>
+                </p>
+                <p class="register text-center mt-2 mb-4">
+                <router-link to="/register">Register?</router-link>
+                </p>
+                </form>
+                
+            </div>
+    </span>
 </template>
 
 <script>
@@ -43,6 +44,13 @@ h1{
 .login{
     text-align: center;
 }
+
+
+
+
+
+
+
 
 </style>
 
