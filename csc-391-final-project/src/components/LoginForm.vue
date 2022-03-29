@@ -9,11 +9,11 @@
                 <label>Password</label>
                 <input required v-model="password" type="password" placeholder="Password"/>
                 <hr/>
-                <v-btn type="submit" class='hidden-sm-and-down' color='white' depressed>Login</v-btn>
-                <p class="forgot-password text-center mt-2 mb-4">
+                <v-btn type="submit" class='hidden-sm-and-down' depressed>Login</v-btn>
+                <p class="forgot-password text-center">
                 <router-link to="/forgot-password">Forgot password?</router-link>
                 </p>
-                <p class="register text-center mt-2 mb-4">
+                <p class="register text-center">
                 <router-link to="/register">Register?</router-link>
                 </p>
                 </form>
@@ -44,13 +44,5 @@ h1{
 .login{
     text-align: center;
 }
-
-
-
-
-
-
-
-
 </style>
 

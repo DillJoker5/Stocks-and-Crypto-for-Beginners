@@ -3,26 +3,26 @@
         <form>
             <h3>Sign Up</h3>
  
-            <div class="form-group">
+            <div>
                 <label>First Name</label>
-                <input type="text" class="form-control form-control-lg"/>
+                <input type="text"/>
             </div>
-            <div class="form-group">
+            <div>
                 <label>Last Name</label>
-                <input type="text" class="form-control form-control-lg"/>
+                <input type="text">
             </div>
  
-            <div class="form-group">
+            <div>
                 <label>Email address</label>
-                <input type="email" class="form-control form-control-lg" />
+                <input type="email"/>
             </div>
  
-            <div class="form-group">
+            <div>
                 <label>Password</label>
-                <input type="password" class="form-control form-control-lg" />
+                <input type="password"/>
             </div>
  
-            <button type="submit" class="btn btn-dark btn-lg btn-block">Sign Up</button>
+            <button type="submit">Sign Up</button>
  
             <p class="forgot-password text-center">
                 Already registered 

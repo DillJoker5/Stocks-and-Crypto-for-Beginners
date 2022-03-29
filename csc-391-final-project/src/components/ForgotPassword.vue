@@ -3,12 +3,12 @@
         <form>
             <h3>Forgot Password</h3>
  
-            <div class="form-group">
+            <div>
                 <label>Email address</label>
-                <input type="email" class="form-control form-control-lg" />
+                <input type="email"/>
             </div>
  
-            <button type="submit" class="btn btn-dark btn-lg btn-block">Reset password</button>
+            <button type="submit">Reset password</button>
  
         </form>
     </div>
@@ -30,7 +30,4 @@
     font-family: cursive;
     text-align: center;
 }
-
-
-
 </style>
