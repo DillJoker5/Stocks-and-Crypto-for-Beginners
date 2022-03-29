@@ -6,9 +6,10 @@
             <div>
                 <label>Email address</label>
                 <input type="email"/>
+                <hr/>
             </div>
  
-            <button type="submit">Reset password</button>
+            <v-btn type="submit" class='hidden-sm-and-down' depressed>Reset Password</v-btn>
  
         </form>
     </div>
@@ -29,5 +30,16 @@
     padding: 20px;
     font-family: cursive;
     text-align: center;
+}
+input{
+    border-style: solid;
+    border-color: black;
+    margin: 15px;
+}
+hr{
+    margin:10px;
+}
+label{
+    display: inline-block; width: 210px; text-align: right;
 }
 </style>

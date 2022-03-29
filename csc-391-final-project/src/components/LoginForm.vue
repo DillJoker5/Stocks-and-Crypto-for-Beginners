@@ -4,8 +4,10 @@
         
             <div class= 'login'>    
                 <form class="logins" @submit.prevent="login">
+                <div>
                 <label>Username</label>
                 <input required v-model="username" type ="text" placeholder="Username" class="white-color"/>
+                </div>
                 <label>Password</label>
                 <input required v-model="password" type="password" placeholder="Password"/>
                 <hr/>
@@ -43,6 +45,17 @@ h1{
 }
 .login{
     text-align: center;
+}
+input{
+    border-style: solid;
+    border-color: black;
+    margin: 15px;
+}
+hr{
+    margin: 10px;
+}
+label{
+    display: inline-block; width: 210px; text-align: right;
 }
 </style>
 

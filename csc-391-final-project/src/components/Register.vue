@@ -21,8 +21,8 @@
                 <label>Password</label>
                 <input type="password"/>
             </div>
- 
-            <button type="submit">Sign Up</button>
+            <hr/>
+            <v-btn type="submit" class='hidden-sm-and-down' depressed>Sign Up</v-btn>
  
             <p class="forgot-password text-center">
                 Already registered 
@@ -46,7 +46,17 @@
     padding: 20px;
     font-family: cursive;
     text-align: center;
-
+}
+input{
+    border-style: solid;
+    border-color: black;
+    margin: 10px;
+}
+hr{
+    margin:10px;
+}
+label{
+    display: inline-block; width: 210px; text-align: right;
 }
 
 
