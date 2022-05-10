@@ -1,7 +1,7 @@
 <template>
     <span>
         <div class="profile">
-            <profile/>
+            <profile />
         </div>
         
     </span>

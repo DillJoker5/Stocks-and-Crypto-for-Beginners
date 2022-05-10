@@ -35,10 +35,31 @@ export default {
     name: 'Profile',
     data(){
         return{
-            userinfo: userinfo,
+            userinfo: [],
+            userId: '',
+        }
+    },
+    created() {
+        this.userId = this.$route.params.UserId;
+        try {
+            let usersUrl = '/readUsers';
+
+            let usersResponse = await this.$http.post(usersUrl, {
+            }, {
+                'Content-Type': 'application/json',
+            });
+
+            let users = usersResponse.data.data;
+
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].UserId === this.userId) {
+                    this.userinfo.push(users[i]);
+                }
+            }
+        } catch(error) {
+            throw new Error(error);
         }
     }
-
 }
 </script>
 <style scoped>

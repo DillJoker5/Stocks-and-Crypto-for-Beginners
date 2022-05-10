@@ -57,7 +57,7 @@ export default {
                 { text: 'Favorite', value: 'favorite' },
             ],
             search: '',
-            threadData: threadDataInfo,
+            threadData: [],
         }
     },
     methods: {
@@ -78,6 +78,39 @@ export default {
             this.$router.push({
                 name: 'Create Thread'
             });
+        },
+    },
+    created() {
+        try {
+            let threadUrl = '/readThread';
+
+            let threadResponse = await this.$http.post(threadUrl, {
+            }, {
+                'Content-Type': 'application/json'
+            });
+
+            this.threadData = threadResponse.data.data;
+
+            let threadFavoritesUrl = '/readThreadFavorites';
+
+            let threadFavoritesResponse = await this.$http.post(threadFavoritesUrl, {
+            }, {
+                'Content-Type': 'application/json'
+            });
+
+            let threadFavorites = threadFavoritesResponse.data.data;
+
+            if (this.UserGuid !== undefined) {
+                for (let j = 0; j < threadData.length; j++) {
+                    for (let i = 0; i < threadFavorites.length; i++) {
+                        if (threadFavorites[i].UserId === this.UserId && threadData.UserId === this.UserId) {
+                            threadData['favorite'] = true;
+                        }
+                    }
+                }
+            }
+        } catch (error) {
+            throw new Error(error);
         }
     }
 };

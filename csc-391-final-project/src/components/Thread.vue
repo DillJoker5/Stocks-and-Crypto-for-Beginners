@@ -6,6 +6,10 @@
       <v-card-text>Thread Owner: {{threadData[0].thread_owner}}</v-card-text>
       <v-card-text>Date Created: {{convertDateCreated(threadData[0].date_created)}}</v-card-text>
       <v-card-text>Description: {{threadData[0].description}}</v-card-text>
+      <v-btn
+        class="mr-4"
+        @click="createResponse"
+      >+</v-btn>
       <v-card v-for='comment in threadData[0].comments' :key='comment.owner' class="v-card-border">
         <p>{{comment.owner}}</p>
         <v-card-text>{{comment.text}}</v-card-text>
@@ -42,6 +46,56 @@ export default {
           this.$router.push({
             name: 'View Threads'
           });
+        }, 
+        getThread(threadId) {
+          try {
+            let threadUrl = '/readThread';
+
+            let threadResponse = await this.$http.post(threadUrl, {
+            }, {
+              'Content-Type': 'application/json'
+            });
+
+            let threads = threadResponse.data.data;
+
+            for (let i = 0; i < threads.length; i++) {
+              if(threads[i].ThreadId === threadId.toString()) {
+                this.threadData.push(threads[i]);
+              }
+            }
+
+            let responsesUrl = '/readResponse';
+
+            let responsesResponse = await this.$http.post(responsesUrl, {
+            }, {
+              'Content-Type': 'application/json'
+            });
+
+            let responses = responsesResponse.data.data;
+
+            for (let i = 0; i < responses.length; i++) {
+              if(responses[i].ThreadId === threadId.toString()) {
+                this.threadData[0].comments.push(responses[i]);
+              }
+            }
+          } catch (error) {
+            throw new Error(error);
+          }
+        },
+        createResponse() {
+          try {
+          } catch (error) {
+            let createResponseUrl = '/newThreadResponse';
+
+            let createResponseResponse = await this.$http.post(createResponseUrl, {
+              'UserId': '',
+              'ThreadId': this.threadId,
+            }, {
+              'Content-Type': 'application/json',
+              'UserGuid': this.UserGuid
+            })
+            throw new Error(error);
+          }
         }
     },
     created() {

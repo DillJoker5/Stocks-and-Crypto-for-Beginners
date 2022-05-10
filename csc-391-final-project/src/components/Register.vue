@@ -45,6 +45,23 @@
         methods: {
             register() {
                 try {
+                    let registerUrl = '/register';
+
+                    let registerResponse = await this.$http.post(registerUrl, {
+                        'Username': firstName + lastName,
+                        'Email': email,
+                        'Password': password,
+                    }, {
+                        'Content-Type': 'application/json',
+                    });
+
+                    let success = registerResponse.Type;
+
+                    if (success === 'Success') {
+                        this.$router({
+                            name: 'Login'
+                        });
+                    }
                 } catch (error) {
                     throw new Error(error);
                 }

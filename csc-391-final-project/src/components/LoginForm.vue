@@ -46,7 +46,7 @@ export default {
                     'Content-Type': 'application/json'
                 });
 
-                let userGuid = loginResponse.data.UserGuid;
+                let userGuid = loginResponse.data.UserGuid; // save this to a global variable
             } catch (error) {
                 throw new Error(error);
             }
