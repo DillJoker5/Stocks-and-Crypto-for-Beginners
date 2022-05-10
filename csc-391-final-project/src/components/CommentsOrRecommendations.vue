@@ -72,7 +72,6 @@ export default {
                     });
 
                     this.insightData.push(insightResponse.data.finance.result);
-                    console.log(this.insightData);
                 }
             } catch (error) {
                 throw new Error(error);

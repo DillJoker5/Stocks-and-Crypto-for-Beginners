@@ -91,14 +91,29 @@ export default {
     methods: {
         submit() {
             this.$v.$touch();
-            // query database
-            if (this.name) { // successful query
-                this.$router.push({
-                    name: 'View Threads'
+            try {
+                let createThreadUrl = '/newThread';
+
+                let createThreadResponse = await this.$http.post(createThreadUrl, {
+                    'UserId': 1,
+                    'Name': this.name,
+                    'Description': this.description,
+                    'DateCreated': Date.now()
+                }, {
+                    'Content-Type': 'application/json',
+                    'UserGuid': this.userGuid
                 });
-            } else {
-                this.error = "An error has occurred";
-                // display error message
+
+                let success = createThreadResponse.Type;
+
+                if (success === 'Success') {
+                    this.$router({
+                        name: 'View Threads'
+                    });
+                }
+            } catch (error) {
+                this.error = error;
+                throw new Error(error);
             }
         },
 

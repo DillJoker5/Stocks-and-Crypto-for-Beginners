@@ -9,7 +9,7 @@
                 <hr/>
             </div>
  
-            <v-btn type="submit" class='hidden-sm-and-down' depressed>Reset Password</v-btn>
+            <v-btn type="submit" class='hidden-sm-and-down' depressed @click="forgotPassword">Reset Password</v-btn>
  
         </form>
     </div>
@@ -19,6 +19,24 @@
     export default {
         data() {
             return {}
+        },
+
+        methods: {
+            forgotPassword() {
+                try {
+                    let forgotPasswordUrl = '/forgotPassword';
+
+                    let forgotPasswordResponse = await this.$http.post(forgotPasswordUrl, {
+                        'Email': '',
+                        'Username': '',
+                        'Password': '',
+                    }, {
+                        'Content-Type': 'application/json'
+                    });
+                } catch (error) {
+                    throw new Error(error);
+                }
+            }
         }
     }
 </script>

@@ -5,24 +5,24 @@
  
             <div>
                 <label>First Name</label>
-                <input type="text"/>
+                <input type="text" v-model="firstName"/>
             </div>
             <div>
                 <label>Last Name</label>
-                <input type="text">
+                <input type="text" v-model="lastName">
             </div>
  
             <div>
                 <label>Email address</label>
-                <input type="email"/>
+                <input type="email" v-model="email"/>
             </div>
  
             <div>
                 <label>Password</label>
-                <input type="password"/>
+                <input type="password" v-model="password"/>
             </div>
             <hr/>
-            <v-btn type="submit" class='hidden-sm-and-down' depressed>Sign Up</v-btn>
+            <v-btn type="submit" class='hidden-sm-and-down' depressed @click="register">Sign Up</v-btn>
  
             <p class="forgot-password text-center">
                 Already registered 
@@ -35,7 +35,20 @@
 <script>
     export default {
         data() {
-            return {}
+            return {
+                firstName: "",
+                lastName: "",
+                email: "",
+                password: "",
+            }
+        },
+        methods: {
+            register() {
+                try {
+                } catch (error) {
+                    throw new Error(error);
+                }
+            }
         }
     }
 </script>
@@ -58,7 +71,4 @@ hr{
 label{
     display: inline-block; width: 210px; text-align: right;
 }
-
-
- 
 </style>

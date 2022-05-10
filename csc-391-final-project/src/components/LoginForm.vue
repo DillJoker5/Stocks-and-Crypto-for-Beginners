@@ -11,7 +11,7 @@
                 <label>Password</label>
                 <input required v-model="password" type="password" placeholder="Password"/>
                 <hr/>
-                <v-btn type="submit" class='hidden-sm-and-down' depressed>Login</v-btn>
+                <v-btn type="submit" class='hidden-sm-and-down' depressed @click="login">Login</v-btn>
                 <p class="forgot-password text-center">
                 <router-link to="/forgot-password">Forgot password?</router-link>
                 </p>
@@ -32,7 +32,25 @@ export default {
             username: "",
             password: "",
         }
-        
+    },
+
+    methods: {
+        login() {
+            try {
+                let loginUrl = '/login';
+
+                let loginResponse = await this.$http.post(loginUrl, {
+                    'Username': this.username,
+                    'Password': this.password,
+                }, {
+                    'Content-Type': 'application/json'
+                });
+
+                let userGuid = loginResponse.data.UserGuid;
+            } catch (error) {
+                throw new Error(error);
+            }
+        }
     }
     
 }
