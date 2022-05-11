@@ -34,6 +34,7 @@
                     v-model="item.favorite"
                     :value="item.favorite"
                     disabled="true" 
+                    @click="createThreadFavorite"
                 />
             </template>
             <template>
@@ -79,6 +80,20 @@ export default {
                 name: 'Create Thread'
             });
         },
+        createThreadFavorite() {
+            try {
+                let createThreadFavoriteUrl = '/newThreadFavorite';
+
+                let createThreadFavoriteResponse = await this.$http.post(createThreadFavoriteUrl, {
+                    'UserId': '',
+                }, {
+                    'Content-Type': 'application/json',
+                    'UserGuid': this.UserGuid
+                });
+            } catch (error) {
+                throw new Error(error);
+            }
+        }
     },
     created() {
         try {

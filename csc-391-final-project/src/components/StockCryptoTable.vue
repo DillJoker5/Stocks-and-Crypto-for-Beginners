@@ -43,6 +43,7 @@
                     v-model="item.favorite"
                     :value="item.favorite"
                     disabled="true"
+                    @click="createApiFavorite"
                 />
             </template>
         </v-data-table>
@@ -67,6 +68,7 @@ export default {
             ],
             search: '',
             stockCryptoData: stockCryptoInfo,
+            stockCryptoFavorites: [],
         }
     },
     methods: {
@@ -74,6 +76,38 @@ export default {
             if(stockCrypto.current_price > stockCrypto.opening_price) return 'green';
             else if(stockCrypto.current_price === stockCrypto.opening_price) return 'gray';
             else return 'red';
+        },
+        createApiFavorite() {
+            try {
+                let createApiFavoriteUrl = '/newApiFavorite';
+
+                let createApiFavoriteResponse = await this.$http.post(createApiFavoriteUrl, {
+                    'UserId': this.UserId,
+                    'StockId': '',
+                    'ApiUrl': ''
+                }, {
+                    'Content-Type': 'application/json',
+                    'UserGuid': this.UserGuid
+                });
+            } catch (error) {
+                throw new Error(error);
+            }
+        }
+    },
+    created() {
+        if (this.UserGuid) {
+            try {
+                let readApiFavoritesUrl = '/readApiFavorites';
+
+                let readApiFavoritesResponse = await this.$http.post(readApiFavoritesUrl, {
+                }, {
+                    'Content-Type': 'application/json'
+                });
+
+                this.stockCryptoFavorites = readApiFavoritesResponse.data.data;
+            } catch (error) {
+                throw new Error(error);
+            }
         }
     }
 };

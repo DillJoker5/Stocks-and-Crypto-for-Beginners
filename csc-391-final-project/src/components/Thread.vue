@@ -83,19 +83,9 @@ export default {
           }
         },
         createResponse() {
-          try {
-          } catch (error) {
-            let createResponseUrl = '/newThreadResponse';
-
-            let createResponseResponse = await this.$http.post(createResponseUrl, {
-              'UserId': '',
-              'ThreadId': this.threadId,
-            }, {
-              'Content-Type': 'application/json',
-              'UserGuid': this.UserGuid
-            })
-            throw new Error(error);
-          }
+          this.$router.push({
+            name: 'Create Response'
+          })
         }
     },
     created() {

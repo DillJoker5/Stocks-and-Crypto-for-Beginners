@@ -63,6 +63,12 @@ const routes = [
     name: "register",
     component: () =>
       import("../components/Register.vue")
+  },
+  {
+    path: "/create-response",
+    name: "create-response",
+    component: () =>
+      import("../components/CreateResponse.vue")
   }
 ];
 
