@@ -1,53 +1,57 @@
 <template>
-    <v-card>
-        <v-card-title class='gray-darken-2--text blue lighten-3'>
-            <v-text-field
-                v-model="search"
-                label="Search"
-                single-line
-                hide-details
-            ></v-text-field>
-        </v-card-title>
-        <v-data-table
-            :headers='headers'
-            :items='stockCryptoData'
-            :items-per-page='10'
-            class='elevation-1 gray-darken-2--text blue lighten-3'
-            :footer-props="{
-                showCurrentPage: true,
-                showFirstLastPage: true,
-                itemsPerPageOptions: [10, 25, 50, -1],
-            }"
-            :sort-by="[
-                'symbol',
-            ]"
-            :sort-asc="[
-                'true',
-                'false'
-            ]"
-            multi-sort
-            :search='search'
-            dense
-        >
-            <template v-slot:[`item.current_price`]="{ item }">
-                <v-chip
-                    :color="getCurrentPriceColor(item)"
-                    dark
-                >
-                    {{ item.current_price }}
-                </v-chip>
-            </template>
-            <template v-slot:[`item.favorite`]="{ item }">
-                <input
-                    type="checkbox"
-                    v-model="item.favorite"
-                    :value="item.favorite"
-                    disabled="true"
-                    @click="createApiFavorite"
-                />
-            </template>
-        </v-data-table>
-    </v-card>
+    <div>
+        <v-card v-if="tableIsLoaded">
+            <v-card-title class='gray-darken-2--text blue lighten-3'>
+                <v-text-field
+                    v-model="search"
+                    label="Search"
+                    single-line
+                    hide-details
+                ></v-text-field>
+            </v-card-title>
+            <v-data-table
+                :headers='headers'
+                :items='stockCryptoData'
+                :items-per-page='10'
+                class='elevation-1 gray-darken-2--text blue lighten-3'
+                :footer-props="{
+                    showCurrentPage: true,
+                    showFirstLastPage: true,
+                    itemsPerPageOptions: [10, 25, 50, -1],
+                }"
+                :sort-by="[
+                    'symbol',
+                ]"
+                :sort-asc="[
+                    'true',
+                    'false'
+                ]"
+                multi-sort
+                :search='search'
+                dense
+            >
+                <template v-slot:[`item.current_price`]="{ item }">
+                    <v-chip
+                        :color="getCurrentPriceColor(item)"
+                        dark
+                    >
+                        {{ item.current_price }}
+                    </v-chip>
+                </template>
+                <template v-slot:[`item.favorite`]="{ item }">
+                    <input
+                        type="checkbox"
+                        v-model="item.favorite"
+                        :value="item.favorite"
+                        disabled="true"
+                        @click="createApiFavorite"
+                    />
+                </template>
+            </v-data-table>
+        </v-card>
+        <div v-else class="loader" />
+    </div>
+   
 </template>
 
 <script>
@@ -69,6 +73,7 @@ export default {
             search: '',
             stockCryptoData: stockCryptoInfo,
             stockCryptoFavorites: [],
+            tableIsLoaded: true,
         }
     },
     methods: {
@@ -112,3 +117,28 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #0D47A1;
+  width: 75px;
+  height: 75px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  justify-self: center;
+  margin: 0 auto;
+  margin-top: 2vh;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+</style>

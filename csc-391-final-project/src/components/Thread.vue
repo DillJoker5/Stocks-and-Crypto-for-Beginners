@@ -19,7 +19,7 @@
       </v-card>
     </div>
     <div v-else>
-      <p>Loading</p>
+      <div class="loader" />
     </div>
   </div>
 </template>
@@ -107,5 +107,27 @@ p {
   font-weight: 600;
   font-family: cursive;
   border-radius: 10px;
+}
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #0D47A1;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  justify-self: center;
+  margin: 0 auto;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
 }
 </style>
