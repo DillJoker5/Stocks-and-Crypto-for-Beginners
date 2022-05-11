@@ -89,7 +89,7 @@ export default {
     },
 
     methods: {
-        submit() {
+        async submit() {
             this.$v.$touch();
             try {
                 let createThreadUrl = '/newThread';

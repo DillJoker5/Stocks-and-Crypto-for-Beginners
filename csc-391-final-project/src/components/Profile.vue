@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import userinfo from '../data/userinfo.json';
 
 export default {
     name: 'Profile',
@@ -39,7 +38,7 @@ export default {
             userId: '',
         }
     },
-    created() {
+    async created() {
         this.userId = this.$route.params.UserId;
         try {
             let usersUrl = '/readUsers';

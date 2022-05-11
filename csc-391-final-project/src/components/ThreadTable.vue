@@ -1,50 +1,52 @@
 <template>
-    <v-card>
-        <v-card-title class="gray-darken-2--text blue lighten-3">
-            <v-text-field
-                v-model="search"
-                label="Search"
-                single-line
-                hide-details
-            ></v-text-field>
-            <input type="button" class="create-a-thread-button" value="Create A Thread" @click="toCreateAThread" />
-        </v-card-title>
-        <v-data-table
-            :headers='headers'
-            :items='threadData'
-            class='elevation-1 gray-darken-2--text blue lighten-3'
-            :footer-props="{
-                showCurrentPage: true,
-                showFirstLastPage: true,
-                itemsPerPageOptions: [10, 25, 50, -1],
-            }"
-            :sort-by="['name']"
-            :sort-asc="[
-                'true',
-                'false'
-            ]"
-            multi-sort
-            :search='search'
-            dense
-            @click:row="onThreadRowClick"
-        >
-            <template v-slot:[`item.favorite`]="{ item }">
-                <input
-                    type="checkbox"
-                    v-model="item.favorite"
-                    :value="item.favorite"
-                    disabled="true" 
-                    @click="createThreadFavorite"
-                />
-            </template>
-            <template>
-            </template>
-        </v-data-table>
-    </v-card>
+    <div>
+        <v-card v-if="threadTableIsLoaded">
+            <v-card-title class="gray-darken-2--text blue lighten-3">
+                <v-text-field
+                    v-model="search"
+                    label="Search"
+                    single-line
+                    hide-details
+                ></v-text-field>
+                <input type="button" class="create-a-thread-button" value="Create A Thread" @click="toCreateAThread" />
+            </v-card-title>
+            <v-data-table
+                :headers='headers'
+                :items='threadData'
+                class='elevation-1 gray-darken-2--text blue lighten-3'
+                :footer-props="{
+                    showCurrentPage: true,
+                    showFirstLastPage: true,
+                    itemsPerPageOptions: [10, 25, 50, -1],
+                }"
+                :sort-by="['name']"
+                :sort-asc="[
+                    'true',
+                    'false'
+                ]"
+                multi-sort
+                :search='search'
+                dense
+                @click:row="onThreadRowClick"
+            >
+                <template v-slot:[`item.favorite`]="{ item }">
+                    <input
+                        type="checkbox"
+                        v-model="item.favorite"
+                        :value="item.favorite"
+                        disabled="true" 
+                        @click="createThreadFavorite"
+                    />
+                </template>
+                <template>
+                </template>
+            </v-data-table>
+        </v-card>
+        <p v-else>Loading</p>
+    </div>
 </template>
 
 <script>
-import threadDataInfo from '../data/threadDataInfo.json';
 
 export default {
     name: 'ThreadTable',
@@ -59,6 +61,7 @@ export default {
             ],
             search: '',
             threadData: [],
+            threadIsLoaded: false,
         }
     },
     methods: {
@@ -80,11 +83,11 @@ export default {
                 name: 'Create Thread'
             });
         },
-        createThreadFavorite() {
+        async createThreadFavorite() {
             try {
                 let createThreadFavoriteUrl = '/newThreadFavorite';
 
-                let createThreadFavoriteResponse = await this.$http.post(createThreadFavoriteUrl, {
+                await this.$http.post(createThreadFavoriteUrl, {
                     'UserId': '',
                 }, {
                     'Content-Type': 'application/json',
@@ -95,7 +98,7 @@ export default {
             }
         }
     },
-    created() {
+    async created() {
         try {
             let threadUrl = '/readThread';
 
@@ -116,14 +119,16 @@ export default {
             let threadFavorites = threadFavoritesResponse.data.data;
 
             if (this.UserGuid !== undefined) {
-                for (let j = 0; j < threadData.length; j++) {
+                for (let j = 0; j < this.threadData.length; j++) {
                     for (let i = 0; i < threadFavorites.length; i++) {
-                        if (threadFavorites[i].UserId === this.UserId && threadData.UserId === this.UserId) {
-                            threadData['favorite'] = true;
+                        if (threadFavorites[i].UserId === this.UserId && this.threadData.UserId === this.UserId) {
+                            this.threadData['favorite'] = true;
                         }
                     }
                 }
             }
+
+            this.threadIsLoaded = true;
         } catch (error) {
             throw new Error(error);
         }

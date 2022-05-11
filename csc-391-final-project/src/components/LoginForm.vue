@@ -35,7 +35,7 @@ export default {
     },
 
     methods: {
-        login() {
+        async login() {
             try {
                 let loginUrl = '/login';
 
@@ -47,6 +47,7 @@ export default {
                 });
 
                 let userGuid = loginResponse.data.UserGuid; // save this to a global variable
+                console.log(userGuid);
             } catch (error) {
                 throw new Error(error);
             }

@@ -23,7 +23,7 @@ export default {
         }
     },
     methods: {
-        createResponse() {
+        async createResponse() {
             try {
                 let createResponeseUrl = '/newThreadResponse';
 

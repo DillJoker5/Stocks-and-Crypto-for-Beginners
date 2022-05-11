@@ -43,14 +43,14 @@
             }
         },
         methods: {
-            register() {
+            async register() {
                 try {
                     let registerUrl = '/register';
 
                     let registerResponse = await this.$http.post(registerUrl, {
-                        'Username': firstName + lastName,
-                        'Email': email,
-                        'Password': password,
+                        'Username': this.firstName + this.lastName,
+                        'Email': this.email,
+                        'Password': this.password,
                     }, {
                         'Content-Type': 'application/json',
                     });

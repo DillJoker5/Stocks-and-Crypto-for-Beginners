@@ -77,11 +77,11 @@ export default {
             else if(stockCrypto.current_price === stockCrypto.opening_price) return 'gray';
             else return 'red';
         },
-        createApiFavorite() {
+        async createApiFavorite() {
             try {
                 let createApiFavoriteUrl = '/newApiFavorite';
 
-                let createApiFavoriteResponse = await this.$http.post(createApiFavoriteUrl, {
+                await this.$http.post(createApiFavoriteUrl, {
                     'UserId': this.UserId,
                     'StockId': '',
                     'ApiUrl': ''
@@ -94,7 +94,7 @@ export default {
             }
         }
     },
-    created() {
+    async created() {
         if (this.UserGuid) {
             try {
                 let readApiFavoritesUrl = '/readApiFavorites';

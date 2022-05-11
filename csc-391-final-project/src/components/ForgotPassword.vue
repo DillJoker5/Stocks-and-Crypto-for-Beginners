@@ -22,11 +22,11 @@
         },
 
         methods: {
-            forgotPassword() {
+            async forgotPassword() {
                 try {
                     let forgotPasswordUrl = '/forgotPassword';
 
-                    let forgotPasswordResponse = await this.$http.post(forgotPasswordUrl, {
+                    await this.$http.post(forgotPasswordUrl, {
                         'Email': '',
                         'Username': '',
                         'Password': '',
