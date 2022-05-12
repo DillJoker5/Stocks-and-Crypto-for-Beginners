@@ -47,9 +47,10 @@ export default {
             try {
                 let yahooFinanceBaseUrl = 'https://yfapi.net';
                 const apiKey = 'TpjbaujVN99fiiPrSjvLx9edfTJfutFn187SsMYG';
-                for(let i = 0; i < 1; i++) { // 1 is hard-coded to make sure that the request limit isn't exceeded
-                    let recommendationUrl = yahooFinanceBaseUrl + '/v6/finance/recommendationsbysymbol/' + stockCryptoInfo[i].symbol.toString();
-                    let insightsUrl = yahooFinanceBaseUrl + '/ws/insights/v1/finance/insights?symbol=' + stockCryptoInfo[i].symbol.toString();
+                for(let i = 0; i < 1; i++) {
+                    let index = Math.floor(Math.random() * 24);
+                    let recommendationUrl = yahooFinanceBaseUrl + '/v6/finance/recommendationsbysymbol/' + stockCryptoInfo[index].symbol.toString();
+                    let insightsUrl = yahooFinanceBaseUrl + '/ws/insights/v1/finance/insights?symbol=' + stockCryptoInfo[index].symbol.toString();
 
                     let recommendationResponse = await this.$http.get(recommendationUrl, {
                         headers: {

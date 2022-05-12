@@ -12,13 +12,8 @@
             <v-data-table
                 :headers='headers'
                 :items='stockCryptoData'
-                :items-per-page='10'
+                :items-per-page='15'
                 class='elevation-1 gray-darken-2--text blue lighten-3'
-                :footer-props="{
-                    showCurrentPage: true,
-                    showFirstLastPage: true,
-                    itemsPerPageOptions: [10, 25, 50, -1],
-                }"
                 :sort-by="[
                     'symbol',
                 ]"
@@ -55,7 +50,8 @@
 </template>
 
 <script>
-import stockCryptoInfo from '@/data/stockCryptoInfo.json';
+import stockCryptoSymbolList from '../data/stockCryptoInfo.json';
+import cryptoSymbolList from '../data/cryptoInfo.json';
 
 export default {
     name: 'StockCryptoTable',
@@ -67,13 +63,12 @@ export default {
                 { text: 'Current Price ($)', value: 'current_price' },
                 { text: 'Last Opening Price ($)', value: 'opening_price' },
                 { text: 'Last Closing Price ($)', value: 'closing_price' },
-                { text: 'Date Bookmarked (MM/DD/YYYY)', value: 'date_bookmarked' },
                 { text: 'Favorite', value: 'favorite' },
             ],
             search: '',
-            stockCryptoData: stockCryptoInfo,
+            stockCryptoData: [],
             stockCryptoFavorites: [],
-            tableIsLoaded: true,
+            tableIsLoaded: false,
         }
     },
     methods: {
@@ -100,6 +95,80 @@ export default {
         }
     },
     async created() {
+        const finageToken = 'API_KEY8bINEKJOO1I2C58YDWXOT8RXI7QW6Q07';
+
+        const marketSearchResults = stockCryptoSymbolList;
+
+        let marketSearchSymbols = '';
+        let marketSearchNames = [];
+        let marketSearchResultSymbols = []
+
+        for (let i = 0; i < 10; i++) {
+            let randomIndex = Math.floor(Math.random() * 24);
+            marketSearchSymbols += marketSearchResults[randomIndex].symbol;
+            marketSearchNames.push(marketSearchResults[randomIndex].name);
+            marketSearchResultSymbols.push(marketSearchResults[randomIndex].symbol);
+            if (i !== 9) {
+                marketSearchSymbols += ','
+            }
+        }
+
+        const multipleStockLastQuotesUrl = `https://api.finage.co.uk/last/stocks/?symbols=${marketSearchSymbols}&apikey=${finageToken}`;
+        const multipleStockLastTradeUrl = `https://api.finage.co.uk/last/trade/stocks?symbols=${marketSearchSymbols}&apikey=${finageToken}`;
+
+        let multipleStockLastQuotesResponse = await this.$http.get(multipleStockLastQuotesUrl, {
+        }, {
+            'Content-Type': 'application/json'
+        });
+
+        let mutipleStockLastTradeResponse = await this.$http.get(multipleStockLastTradeUrl, {
+        }, {
+            'Content-Type': 'application/json'
+        });
+
+        for (let i = 0; i < 10; i++) {
+            let obj = {};
+            obj['symbol'] = marketSearchResultSymbols[i];
+            obj['name'] = marketSearchNames[i];
+            obj['current_price'] = multipleStockLastQuotesResponse.data[i].ask;
+            obj['opening_price'] = mutipleStockLastTradeResponse.data[i].price;
+            obj['closing_price'] = mutipleStockLastTradeResponse.data[i].price;
+
+            this.stockCryptoData.push(obj);
+        }
+
+        const cryptoSearchResults = cryptoSymbolList;
+
+        for (let j = 0; j < 2; j++) {
+            let index = Math.floor(Math.random() * 5);
+            let cryptoLastQuoteUrl = `https://api.finage.co.uk/last/quote/crypto/${cryptoSearchResults[index].symbol}?apikey=${finageToken}`;
+            let cryptoLastTradeUrl = `https://api.finage.co.uk/last/crypto/${cryptoSearchResults[index].symbol}?apikey=${finageToken}`;
+
+            let cryptoLastQuoteResponse = await this.$http.get(cryptoLastQuoteUrl, {
+            }, {
+                'Content-Type': 'application/json'
+            });
+
+            let cryptoLastQuoteResult = cryptoLastQuoteResponse.data;
+
+            let cryptoLastTradeResponse = await this.$http.get(cryptoLastTradeUrl, {
+            }, {
+                'Content-Type': 'application/json'
+            });
+
+            let cyrptoLastTradeResult = cryptoLastTradeResponse.data;
+            
+            let obj = {};
+
+            obj['symbol'] = cryptoSearchResults[index].symbol;
+            obj['name'] = cryptoSearchResults[index].name;
+            obj['current_price'] = cryptoLastQuoteResult.ask;
+            obj['opening_price'] = cyrptoLastTradeResult.price;
+            obj['closing_price'] = cryptoLastQuoteResult.bid;
+
+            this.stockCryptoData.push(obj);
+        }
+
         if (this.UserGuid) {
             try {
                 let readApiFavoritesUrl = '/readApiFavorites';
@@ -114,6 +183,8 @@ export default {
                 throw new Error(error);
             }
         }
+
+        this.tableIsLoaded = true;
     }
 };
 </script>
@@ -130,6 +201,7 @@ export default {
   justify-self: center;
   margin: 0 auto;
   margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 @-webkit-keyframes spin {
