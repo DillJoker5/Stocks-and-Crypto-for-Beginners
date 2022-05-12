@@ -1,0 +1,22 @@
+[
+    {
+        "symbol": "BTCUSD",
+        "name": "Bitcoin"
+    },
+    {
+        "symbol": "ADAUSD",
+        "name": "Cardano"
+    },
+    {
+        "symbol": "XLMUSD",
+        "name": "Stellar"
+    },
+    {
+        "symbol": "DOGEUSD",
+        "name": "Doge coin"
+    },
+    {
+        "symbol": "ETHUSD",
+        "name": "Ethereum"
+    }
+]

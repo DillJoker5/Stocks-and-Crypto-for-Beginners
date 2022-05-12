@@ -1,119 +1,122 @@
 [
     {
         "symbol": "DIS",
-        "name": "Walt Disney Co",
-        "current_price": 150,
-        "opening_price": 146,
-        "closing_price": 145,
-        "date_bookmarked": "3/19/2022",
-        "favorite": false
+        "name": "Walt Disney Co"
     },
     {
-        "symbol": "^GSPC",
-        "name": "S&P 500",
-        "current_price": 4322,
-        "opening_price": 4322,
-        "closing_price": 4306,
-        "date_bookmarked": "3/2/2022",
-        "favorite": true
+        "symbol": "UAL",
+        "name": "United Airlines Holdings, Inc."
     },
     {
-        "symbol": "^DJI",
-        "name": "Dow Jones",
-        "current_price": 33379,
-        "opening_price": 33379,
-        "closing_price": 33294,
-        "date_bookmarked": "3/1/2022",
-        "favorite": false
+        "symbol": "SQSP",
+        "name": "Squarespace, Inc."
     },
     {
-        "symbol": "^IXIC",
-        "name": "NASDAQ",
-        "current_price": 13597,
-        "opening_price": 13597,
-        "closing_price": 13532,
-        "date_bookmarked": "3/3/2022",
-        "favorite": true
+        "symbol": "ZM",
+        "name": "Zoom Video Communications, Inc."
     },
     {
         "symbol": "TSLA",
-        "name": "Tesla",
-        "current_price": 876,
-        "opening_price": 872,
-        "closing_price": 864,
-        "date_bookmarked": "4/3/2022",
-        "favorite": true
+        "name": "Tesla"
     },
     {
         "symbol": "F",
-        "name": "Ford",
-        "current_price": 20,
-        "opening_price": 17,
-        "closing_price": 16,
-        "date_bookmarked": "3/14/2022",
-        "favorite": false
+        "name": "Ford"
     },
     {
         "symbol": "NFLX",
-        "name": "Netflix",
-        "current_price": 400,
-        "opening_price": 389,
-        "closing_price": 386,
-        "date_bookmarked": "5/9/2022",
-        "favorite": false
+        "name": "Netflix"
     },
     {
-        "symbol": "BTC-USD",
-        "name": "Bitcoin",
-        "current_price": 44371,
-        "opening_price": 44371,
-        "closing_price": 44371,
-        "date_bookmarked": "3/2/2022",
-        "favorite": true
+        "symbol": "FB",
+        "name": "Meta Platforms, Inc."
     },
     {
-        "symbol": "DOGE-USD",
-        "name": "Doge coin",
-        "current_price": 2,
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": "3/3/2022",
-        "favorite": true
+        "symbol": "AAPL",
+        "name": "Apple Inc."
     },
     {
-        "symbol": "ETH-USD",
-        "name": "Ethereum",
-        "current_price": 2674,
-        "opening_price": 2969,
-        "closing_price": 2969,
-        "date_bookmarked": "2/11/2022",
-        "favorite": false
+        "symbol": "AMD",
+        "name": "Advanced Micro Devices, Inc."
     },
     {
-        "symbol": "ADA-USD",
-        "name": "Cardano",
-        "current_price": 2,
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": "1/12/2022",
-        "favorite": true
+        "symbol": "RBLX",
+        "name": "Roblox Corporation"
     },
     {
-        "symbol": "XLM-USD",
-        "name": "Stellar",
-        "current_price": 2,
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": "1/18/2022",
-        "favorite": false
+        "symbol": "AMC",
+        "name": "AMC Entertainment Holdings, Inc."
     },
     {
-        "symbol": "TRX-USD",
-        "name": "Tron",
-        "current_price": 2,
-        "opening_price": 1,
-        "closing_price": 1,
-        "date_bookmarked": "2/27/2022",
-        "favorite": false
+        "symbol": "NIO",
+        "name": "NIO Inc."
+    },
+    {
+        "symbol": "LCID",
+        "name": "Lucid Group, Inc."
+    },
+    {
+        "symbol": "UBER",
+        "name": "Uber Technologies, Inc."
+    },
+    {
+        "symbol": "BAC",
+        "name": "Bank of America Corporation"
+    },
+    {
+        "symbol": "MSFT",
+        "name": "Microsoft Corporation"
+    },
+    {
+        "symbol": "GM",
+        "name": "General Motors Company"
+    },
+    {
+        "symbol": "U",
+        "name": "Unity Software Inc."
+    },
+    {
+        "symbol": "XOM",
+        "name": "Exxon Mobil Corporation"
+    },
+    {
+        "symbol": "INTC",
+        "name": "Intel Corporation"
+    },
+    {
+        "symbol": "HOOD",
+        "name": "Robinhood Markets, Inc."
+    },
+    {
+        "symbol": "SNAP",
+        "name": "Snap Inc."
+    },
+    {
+        "symbol": "C",
+        "name": "Citigroup Inc."
+    },
+    {
+        "symbol": "PFE",
+        "name": "Pfizer Inc."
+    },
+    {
+        "symbol": "WFC",
+        "name": "Wells Fargo & Company"
+    },
+    {
+        "symbol": "PYPL",
+        "name": "Paypal Holdings, Inc."
+    },
+    {
+        "symbol": "CMCSA",
+        "name": "Comcast Corporation"
+    },
+    {
+        "symbol": "BMBL",
+        "name": "Bumble Inc."
+    },
+    {
+        "symbol": "WBD",
+        "name": "Warner Bros. Discovery, Inc."
     }
 ]
