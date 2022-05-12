@@ -1,7 +1,7 @@
-# CSC-391-Final-Project
+# CSC-391-Final-Project Front End
 
 # About
-This our final project for Advanced Web Dev. It includes both Front-end, Back-end, and API's. This website allows users to check the current prices of stocks and cryptocurrencies in the market. Users are also able to create and view threads about various related stocks and cryptos. A backend database is also used with this website using MySQL and must be ran incoherent with this to allow website to work.
+This is our front end for the final project of Advanced Web Dev. This website allows users to check the current prices of stocks and cryptocurrencies in the market. Users are also able to create and view threads about various related stocks and cryptos. A backend database is also used with this website using MySQL and must be ran incoherent with this to allow website to work.
 
 # Team
 Tyler Fahney and Dylan Chirigotis
@@ -31,11 +31,8 @@ Dylan put info here about API
 
 # Languages/Frameworks Used
 * Vue
-* Go
 * Javascript
 * CSS
-* SQL
-* API?
 
 # Pictures
 Will put some pictures here after CSS is done
