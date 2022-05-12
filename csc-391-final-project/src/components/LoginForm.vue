@@ -64,6 +64,7 @@ h1{
 }
 .login{
     text-align: center;
+    
 }
 input{
     border-style: solid;
@@ -75,6 +76,13 @@ hr{
 }
 label{
     display: inline-block; width: 210px; text-align: right;
+}
+.login {
+      background-color: white;
+      border-style: dashed;
+      border-radius: 10px;
+      border-width: 3px;
+      margin: 3vw 3vh 3vw 3vh;
 }
 </style>
 

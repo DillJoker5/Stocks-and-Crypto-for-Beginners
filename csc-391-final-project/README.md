@@ -1,6 +1,14 @@
-# csc-391-final-project
+# CSC-391-Final-Project
 
-## Project setup
+# About
+This our final project for Advanced Web Dev. It includes both Front-end, Back-end, and API's. This website allows users to check the current prices of stocks and cryptocurrencies in the market. Users are also able to create and view threads about various related stocks and cryptos. A backend database is also used with this website using MySQL and must be ran incoherent with this to allow website to work.
+
+# Team
+Tyler Fahney and Dylan Chirigotis
+
+
+# Installation
+## Project Setup Front End
 ```
 npm install
 ```
@@ -15,10 +23,20 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Project Setup Back End
+Go to https://github.com/DillJoker5/Stocks-and-Crypto-for-Beginners-Backend for instructions on how to set up back end.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# API Used
+Dylan put info here about API
+
+# Languages/Frameworks Used
+* Vue
+* Go
+* Javascript
+* CSS
+* SQL
+* API?
+
+# Pictures
+Will put some pictures here after CSS is done
+
