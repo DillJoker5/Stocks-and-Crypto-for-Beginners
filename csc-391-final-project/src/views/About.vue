@@ -2,6 +2,7 @@
     <div class='about'>
         <h1 class='text-center'>About Our Project</h1>
         <br>
+        <v-img class='about-logo-img' max-height='300' max-width='300' :src='require("@/assets/stockCryptoLogo.png")' />
         <br>
         <h3>Team Members</h3>
         <ul>
