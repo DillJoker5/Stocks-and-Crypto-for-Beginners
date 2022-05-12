@@ -18,7 +18,6 @@ export default {
 
 <style scoped>
 .form-background {
-    background-color: darkslategrey;
     height: 100%;
     padding: 20px;
 }

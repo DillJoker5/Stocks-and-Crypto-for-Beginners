@@ -1,14 +1,16 @@
 <template>
   <span>
-    <h1>Placeholder for Home Page</h1>
+    <home-page/>
   </span>
 </template>
 
 <script>
+import HomePage from '../components/HomePage.vue'
 
 export default {
   name: 'Home',
   components: {
+    HomePage
   },
 };
 </script>

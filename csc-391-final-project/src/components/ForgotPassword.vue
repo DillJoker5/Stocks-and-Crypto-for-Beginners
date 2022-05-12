@@ -18,7 +18,9 @@
 <script>
     export default {
         data() {
-            return {}
+            return {
+                email: "",
+            }
         },
 
         methods: {
@@ -27,9 +29,7 @@
                     let forgotPasswordUrl = '/forgotPassword';
 
                     await this.$http.post(forgotPasswordUrl, {
-                        'Email': '',
-                        'Username': '',
-                        'Password': '',
+                        'Email': this.email
                     }, {
                         'Content-Type': 'application/json'
                     });
@@ -43,7 +43,6 @@
 
 <style scoped> 
 .forgotpassword {
-    background-color: darkslategrey;
     height: 100%;
     padding: 20px;
     font-family: cursive;

@@ -17,7 +17,6 @@ export default {
 
 <style scoped>
 .create-a-thread {
-    background-color: darkslategray;
     height: 100%;
     font-weight: 600;
     font-family: cursive;

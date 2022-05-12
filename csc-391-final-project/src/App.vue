@@ -1,11 +1,11 @@
 <template>
   <v-app>
     <app-nav />
-    <v-main>
+    <v-main class = 'hero-image'>
       <router-view>
       </router-view>
     </v-main>
-    <v-footer absolute app color='blue darken-4' class='footer' dark>
+    <v-footer absolute app color='black' class='footer' dark>
         If you have any questions or concerns, please contact us here:
         &nbsp;
         <a href='mailto:tostdy4@gmail.com'>Dylan Chirigotis</a>
@@ -30,5 +30,8 @@ export default {
 .footer {
   padding-top: 20px;
   justify-content: center;
+}
+.hero-image {
+  background-image: url(./assets/penny-stocks.png);
 }
 </style>
