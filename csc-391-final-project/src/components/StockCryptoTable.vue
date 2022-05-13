@@ -178,7 +178,7 @@ export default {
                     'Content-Type': 'application/json'
                 });
 
-                this.stockCryptoFavorites = readApiFavoritesResponse.data.data;
+                this.stockCryptoFavorites = readApiFavoritesResponse.data.Data;
             } catch (error) {
                 throw new Error(error);
             }

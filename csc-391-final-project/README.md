@@ -6,7 +6,6 @@ This is our front end for the final project of Advanced Web Dev. This website al
 # Team
 Tyler Fahney and Dylan Chirigotis
 
-
 # Installation
 ## Project Setup Front End
 ```
@@ -27,7 +26,7 @@ npm run build
 Go to https://github.com/DillJoker5/Stocks-and-Crypto-for-Beginners-Backend for instructions on how to set up back end.
 
 # API Used
-Dylan put info here about API
+Finage api used for stock and crypto information. Yahoo Finance api used for insights and recommendations.
 
 # Languages/Frameworks Used
 * Vue
