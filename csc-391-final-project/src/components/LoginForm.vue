@@ -25,6 +25,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'LoginForm',
     data(){
@@ -41,16 +42,21 @@ export default {
 
                 let loginResponse = await this.$http.post(loginUrl, {
                     'Username': this.username,
-                    'Password': this.password,
+                    'Password': this.password
                 }, {
                     'Content-Type': 'application/json'
                 });
 
-                let userGuid = loginResponse.data.UserGuid; // save this to a global variable
-                console.log(userGuid);
+                let userGuid = loginResponse.data.UserGuid;
+                let userId = loginResponse.data.userId
+                localStorage.setItem('userGuid', userGuid)
+                localStorage.setItem('userId', userId)
+                
+                
             } catch (error) {
                 throw new Error(error);
             }
+                
         }
     }
     
@@ -61,10 +67,6 @@ export default {
 <style scoped>
 h1{
     text-align: center;
-}
-.login{
-    text-align: center;
-    
 }
 input{
     border-style: solid;
@@ -83,6 +85,7 @@ label{
       border-radius: 10px;
       border-width: 3px;
       margin: 3vw 3vh 3vw 3vh;
+      text-align: center;
 }
 </style>
 

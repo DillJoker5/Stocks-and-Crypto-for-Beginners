@@ -1,16 +1,13 @@
 <template>
-    <div class="forgotpassword">
-        <form>
-            <h3>Forgot Password</h3>
- 
+    <div>
+        <h1>Forgot Password</h1>
+        <form class = 'forgotpassword' @submit.prevent="forgotPassword">
             <div>
                 <label>Email address</label>
                 <input type="email"/>
                 <hr/>
+                <v-btn type="submit" class='hidden-sm-and-down' depressed @click="forgotPassword">Reset Password</v-btn>
             </div>
- 
-            <v-btn type="submit" class='hidden-sm-and-down' depressed @click="forgotPassword">Reset Password</v-btn>
- 
         </form>
     </div>
 </template>
@@ -47,6 +44,11 @@
     padding: 20px;
     font-family: cursive;
     text-align: center;
+    background-color: white;
+    border-style: dashed;
+    border-radius: 10px;
+    border-width: 3px;
+    margin: 3vw 3vh 3vw 3vh;
 }
 input{
     border-style: solid;
@@ -58,5 +60,8 @@ hr{
 }
 label{
     display: inline-block; width: 210px; text-align: right;
+}
+h1{
+    text-align: center;
 }
 </style>
