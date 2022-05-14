@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-card v-if="threadTableIsLoaded">
+        <v-card v-if="threadIsLoaded">
             <v-card-title class="gray-darken-2--text blue lighten-3">
                 <v-text-field
                     v-model="search"
@@ -38,7 +38,8 @@
                         @click="createThreadFavorite"
                     />
                 </template>
-                <template>
+                <template v-slot:[`item.DateCreated`]="{ item }">
+                    <v-card-text>{{convertDateCreated(item.DateCreated)}}</v-card-text>
                 </template>
             </v-data-table>
         </v-card>
@@ -53,10 +54,9 @@ export default {
     data() {
         return {
             headers: [
-                { text: 'Name (EN)', align: 'start', value: 'name'},
-                { text: 'Thread Owner', value: 'thread_owner'},
-                { text: 'Description', value: 'description' },
-                { text: 'Date Created', value: 'date_created' },
+                { text: 'Name (EN)', align: 'start', value: 'Name'},
+                { text: 'Description', value: 'Description' },
+                { text: 'Date Created', value: 'DateCreated' },
                 { text: 'Favorite', value: 'favorite' },
             ],
             search: '',
@@ -70,7 +70,7 @@ export default {
             return formattedDateCreated.toLocaleTimeString() + ' ' + formattedDateCreated.toLocaleDateString();
         },
         onThreadRowClick(val) {
-            const valId = val.id;
+            const valId = val.ThreadId;
             this.$router.push({
                 name: 'View Thread',
                 params: {
@@ -107,16 +107,16 @@ export default {
                 'Content-Type': 'application/json'
             });
 
-            this.threadData = threadResponse.data.data;
+            this.threadData = threadResponse.data.Data;
 
-            let threadFavoritesUrl = '/readThreadFavorites';
+            /*let threadFavoritesUrl = '/readThreadFavorites';
 
             let threadFavoritesResponse = await this.$http.post(threadFavoritesUrl, {
             }, {
                 'Content-Type': 'application/json'
             });
 
-            let threadFavorites = threadFavoritesResponse.data.data;
+            let threadFavorites = threadFavoritesResponse.data.Data;
 
             if (this.UserGuid !== undefined) {
                 for (let j = 0; j < this.threadData.length; j++) {
@@ -126,7 +126,7 @@ export default {
                         }
                     }
                 }
-            }
+            }*/
 
             this.threadIsLoaded = true;
         } catch (error) {
