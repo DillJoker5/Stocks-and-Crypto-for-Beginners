@@ -1,9 +1,9 @@
 <template>
    <span>
        <h1> Login here</h1>
-        
+            
             <div class= 'login'>    
-                <form class="logins" @submit.prevent="login">
+                <form class="logins">
                 <div>
                 <label>Username</label>
                 <input required v-model="username" type ="text" placeholder="Username" class="white-color"/>
@@ -11,6 +11,7 @@
                 <label>Password</label>
                 <input required v-model="password" type="password" placeholder="Password"/>
                 <hr/>
+                 <p v-if="errorIsThrown">{{error}}</p>
                 <v-btn type="submit" class='hidden-sm-and-down' depressed @click="login">Login</v-btn>
                 <p class="forgot-password text-center">
                 <router-link to="/forgot-password">Forgot password?</router-link>
@@ -32,6 +33,8 @@ export default {
         return{
             username: "",
             password: "",
+            error: "",
+            errorIsThrown: false,
         }
     },
 
@@ -48,12 +51,15 @@ export default {
                 });
 
                 let userGuid = loginResponse.data.UserGuid;
-                let userId = loginResponse.data.userId
+                let userId = loginResponse.data.UserId
                 localStorage.setItem('userGuid', userGuid)
                 localStorage.setItem('userId', userId)
                 
                 
+                
             } catch (error) {
+                this.error = error;
+                this.errorIsThrown = true;
                 throw new Error(error);
             }
                 
@@ -78,6 +84,10 @@ hr{
 }
 label{
     display: inline-block; width: 210px; text-align: right;
+}
+p {
+    text-align: center;
+    color: red;
 }
 .login {
       background-color: white;

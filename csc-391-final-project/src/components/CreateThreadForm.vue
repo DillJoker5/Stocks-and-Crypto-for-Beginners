@@ -92,25 +92,23 @@ export default {
         async submit() {
             this.$v.$touch();
             try {
+                let userGuid = localStorage.getItem('userGuid');
+                let userId = localStorage.getItem('userId');
                 let createThreadUrl = '/newThread';
 
-                let createThreadResponse = await this.$http.post(createThreadUrl, {
-                    'UserId': 1,
+                await this.$http.post(createThreadUrl, {
+                    'UserId': userId,
                     'Name': this.name,
                     'Description': this.description,
                     'DateCreated': Date.now()
                 }, {
                     'Content-Type': 'application/json',
-                    'UserGuid': this.userGuid
+                    'UserGuid': userGuid.toString()
                 });
 
-                let success = createThreadResponse.Type;
-
-                if (success === 'Success') {
-                    this.$router({
+                    this.$router.push({
                         name: 'View Threads'
                     });
-                }
             } catch (error) {
                 this.error = error;
                 throw new Error(error);

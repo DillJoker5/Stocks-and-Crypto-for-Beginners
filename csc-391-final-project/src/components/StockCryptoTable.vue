@@ -169,16 +169,21 @@ export default {
             this.stockCryptoData.push(obj);
         }
 
-        if (this.UserGuid) {
+        let userGuid = localStorage.getItem('userGuid');
+
+        if (userGuid) {
             try {
                 let readApiFavoritesUrl = '/readApiFavorites';
 
                 let readApiFavoritesResponse = await this.$http.post(readApiFavoritesUrl, {
                 }, {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'UserGuid': userGuid.toString()
                 });
 
                 this.stockCryptoFavorites = readApiFavoritesResponse.data.data;
+
+                console.log(this.stockCryptoFavorites)
             } catch (error) {
                 throw new Error(error);
             }

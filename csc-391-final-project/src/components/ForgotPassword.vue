@@ -4,7 +4,7 @@
         <form class = 'forgotpassword' @submit.prevent="forgotPassword">
             <div>
                 <label>Email address</label>
-                <input type="email"/>
+                <input type="email" v-model="email"/>
                 <hr/>
                 <v-btn type="submit" class='hidden-sm-and-down' depressed @click="forgotPassword">Reset Password</v-btn>
             </div>
