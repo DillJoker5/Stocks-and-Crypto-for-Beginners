@@ -38,7 +38,6 @@
                         type="checkbox"
                         v-model="item.favorite"
                         :value="item.favorite"
-                        disabled="true"
                         @click="createApiFavorite"
                     />
                 </template>
@@ -77,17 +76,22 @@ export default {
             else if(stockCrypto.current_price === stockCrypto.opening_price) return 'gray';
             else return 'red';
         },
-        async createApiFavorite() {
+        async createApiFavorite(e) {
             try {
                 let createApiFavoriteUrl = '/newApiFavorite';
+                let userGuid = localStorage.getItem('userGuid');
+                let userId = parseInt(localStorage.getItem('userId'));
+                const stockId = e.path[2].firstChild.innerText;
 
                 await this.$http.post(createApiFavoriteUrl, {
-                    'UserId': this.UserId,
-                    'StockId': '',
-                    'ApiUrl': ''
+                    'UserId': userId,
+                    'StockId': stockId,
+                    'ApiUrl':  `https://api.finage.co.uk/last/stocks/?symbols=${stockId}`
                 }, {
+                    headers:{
                     'Content-Type': 'application/json',
-                    'UserGuid': this.UserGuid
+                    'UserGuid': userGuid
+                    }
                 });
             } catch (error) {
                 throw new Error(error);
@@ -170,6 +174,7 @@ export default {
         }
 
         let userGuid = localStorage.getItem('userGuid');
+        let userId = localStorage.getItem('userId');
 
         if (userGuid) {
             try {
@@ -177,13 +182,14 @@ export default {
 
                 let readApiFavoritesResponse = await this.$http.post(readApiFavoritesUrl, {
                 }, {
-                    'Content-Type': 'application/json',
-                    'UserGuid': userGuid.toString()
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'UserGuid': userGuid.toString()
+                    }
                 });
 
-                this.stockCryptoFavorites = readApiFavoritesResponse.data.data;
-
-                console.log(this.stockCryptoFavorites)
+                this.stockCryptoFavorites = readApiFavoritesResponse.data.Data;
+                console.log(userId);
             } catch (error) {
                 throw new Error(error);
             }

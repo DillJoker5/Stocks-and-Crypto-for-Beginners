@@ -97,14 +97,19 @@ export default {
                 let userId = localStorage.getItem('userId');
                 let createThreadUrl = '/newThread';
 
+                let newDate = new Date(Date.now());
+                const dateCreated = newDate.toLocaleTimeString() + ' ' + newDate.toLocaleDateString();                
+
                 await this.$http.post(createThreadUrl, {
-                    'UserId': userId,
+                    'UserId': parseInt(userId),
                     'Name': this.name,
                     'Description': this.description,
-                    'DateCreated': Date.now()
+                    'DateCreated': dateCreated
                 }, {
-                    'Content-Type': 'application/json',
-                    'userGuid': userGuid
+                    headers:{
+                    'UserGuid': userGuid,
+                    'Content-Type': 'application/json'
+                    }
                 });
 
                     this.$router.push({

@@ -1,7 +1,7 @@
 <template>
     <div>
     <v-card class="v-card-border-rounded">
-        <v-card-text>Description: <input type="text" @value="description" /></v-card-text>
+        <v-card-text>Description: <input type="text" v-model="description" /></v-card-text>
         <v-btn
             class="mr-4"
             @click="createResponse"
@@ -19,35 +19,56 @@ export default {
     name: 'CreateResponse',
     data() {
         return {
-            description: ''
+            description: '',
+            threadId: "",
         }
     },
     methods: {
         async createResponse() {
             try {
-                let createResponeseUrl = '/newThreadResponse';
+                let createResponseUrl = '/newThreadResponse';
+                let userGuid = localStorage.getItem('userGuid');
+                let userId = localStorage.getItem('userId');
 
-                let createResponseResponse = await this.$http.post(createResponeseUrl, {
-                    'UserId': '',
-                    'ThreadId': '',
+                let newDate = new Date(Date.now());
+                const dateCreated = newDate.toLocaleTimeString() + ' ' + newDate.toLocaleDateString();                
+
+                await this.$http.post(createResponseUrl, {
+                    'UserId': parseInt(userId),
+                    'ThreadId': parseInt(this.threadId),
                     'Description': this.description,
-                    'DateCreated': Date.now()
+                    'DateCreated': dateCreated
                 }, {
+                    headers:{
                     'Content-Type': 'application/json',
-                    'UserGuid': this.UserGuid
+                    'UserGuid': userGuid
+                    }
                 });
 
-                let response = createResponseResponse;
 
-                if (response.Type === 'Success') {
-                    this.$router.push({
-                        name: 'View Thread'
-                    });
-                }
+                const valId = this.threadId;
+                this.$router.push({
+                    name: 'View Thread',
+                    params: {
+                        valId
+                    }
+                });
             } catch (error) {
                 throw new Error(error);
             }
+        },
+        backtoThread() {
+            const valId = this.threadId;
+            this.$router.push({
+                    name: 'View Thread',
+                    params: {
+                        valId
+                    }
+                });
         }
+    },
+    created() {
+        this.threadId = this.$route.params.valId;
     }
 }
 </script>

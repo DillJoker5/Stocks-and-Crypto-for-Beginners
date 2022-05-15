@@ -39,10 +39,6 @@ export default {
       }
     },
     methods: {
-        convertDateCreated(dateCreated) {
-            const formattedDateCreated = new Date(dateCreated);
-            return formattedDateCreated.toLocaleTimeString() + ' ' + formattedDateCreated.toLocaleDateString();
-        },
         backToThreads() {
           this.$router.push({
             name: 'View Threads'
@@ -77,7 +73,7 @@ export default {
             let comments = [];
 
             for (let i = 0; i < responses.length; i++) {
-              if(responses[i].ThreadId === this.threadId) {
+              if(responses[i].ThreadId === parseInt(this.threadId)) {
                 comments.push(responses[i]);
               }
             }
@@ -96,8 +92,12 @@ export default {
           }
         },
         createResponse() {
+          const valId = this.threadId;
           this.$router.push({
-            name: 'create-response'
+            name: 'create-response',
+            params: {
+              valId
+            }
           })
         }
     },

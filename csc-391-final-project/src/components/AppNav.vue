@@ -12,7 +12,7 @@
             <v-btn class='hidden-sm-and-down' to='/viewStockCryptoTable' depressed>Stocks and Crypto</v-btn>
             <v-btn class='hidden-sm-and-down' to='/userProfile' depressed>User Profile</v-btn>
             <v-btn class='hidden-sm-and-down' to='/login' depressed>Login</v-btn>
-            <v-btn class='hidden-sm-and-down' to='/logout' depressed>Logout</v-btn>
+            <v-btn class='hidden-sm-and-down' to='/logout' depressed @click="logout">Logout</v-btn>
         </v-app-bar>
     </span>
 </template>
@@ -34,6 +34,35 @@
                 ]
             }
         },
+        methods: {
+             async logout() {
+            try {
+                let logoutUrl = '/logout';
+                let userGuid = localStorage.getItem('userGuid');
+
+                await this.$http.post(logoutUrl, {
+                    'UserGuid': userGuid,
+                    
+                }, {
+                    'Content-Type': 'application/json'
+                });
+
+                localStorage.setItem('userGuid', '');
+                localStorage.setItem('userId', '');
+                
+                this.$router.push({
+                    name: 'Home'
+                });
+                
+                
+            } catch (error) {
+                this.error = error;
+                this.errorIsThrown = true;
+                throw new Error(error);
+            }
+                
+        }
+        }
     };
 </script>
 

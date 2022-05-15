@@ -34,12 +34,11 @@
                         type="checkbox"
                         v-model="item.favorite"
                         :value="item.favorite"
-                        disabled="true" 
                         @click="createThreadFavorite"
                     />
                 </template>
                 <template v-slot:[`item.DateCreated`]="{ item }">
-                    <v-card-text>{{convertDateCreated(item.DateCreated)}}</v-card-text>
+                    <v-card-text>{{item.DateCreated}}</v-card-text>
                 </template>
             </v-data-table>
         </v-card>
@@ -65,10 +64,6 @@ export default {
         }
     },
     methods: {
-        convertDateCreated(dateCreated) {
-            const formattedDateCreated = new Date(dateCreated);
-            return formattedDateCreated.toLocaleTimeString() + ' ' + formattedDateCreated.toLocaleDateString();
-        },
         onThreadRowClick(val) {
             const valId = val.ThreadId;
             this.$router.push({
@@ -86,12 +81,16 @@ export default {
         async createThreadFavorite() {
             try {
                 let createThreadFavoriteUrl = '/newThreadFavorite';
+                let userGuid = localStorage.getItem('userGuid');
+                let userId = localStorage.getItem('userId');
 
                 await this.$http.post(createThreadFavoriteUrl, {
-                    'UserId': '',
+                    'UserId': parseInt(userId),
                 }, {
+                    headers:{
                     'Content-Type': 'application/json',
-                    'UserGuid': this.UserGuid
+                    'UserGuid': userGuid
+                    }
                 });
             } catch (error) {
                 throw new Error(error);
@@ -109,24 +108,32 @@ export default {
 
             this.threadData = threadResponse.data.Data;
 
-            /*let threadFavoritesUrl = '/readThreadFavorites';
+            let userGuid = localStorage.getItem('userGuid');
+            let userId = parseInt(localStorage.getItem('userId'))
+
+            let threadFavoritesUrl = '/readThreadFavorites';
 
             let threadFavoritesResponse = await this.$http.post(threadFavoritesUrl, {
             }, {
-                'Content-Type': 'application/json'
+                headers: {
+                    'Content-Type': 'application/json',
+                    'UserGuid': userGuid
+                }
             });
 
             let threadFavorites = threadFavoritesResponse.data.Data;
 
-            if (this.UserGuid !== undefined) {
-                for (let j = 0; j < this.threadData.length; j++) {
-                    for (let i = 0; i < threadFavorites.length; i++) {
-                        if (threadFavorites[i].UserId === this.UserId && this.threadData.UserId === this.UserId) {
-                            this.threadData['favorite'] = true;
-                        }
+            for (let j = 0; j < this.threadData.length; j++) {
+                for (let i = 0; i < threadFavorites.length; i++) {
+                    console.log('Thread Data', this.threadData[j].UserId)
+                    console.log('Thread Favorites', threadFavorites[i].UserId)
+                    if (threadFavorites[i].UserId === userId) {
+                        this.threadData[j]['favorite'] = true;
+                    } else {
+                        this.threadData[j]['favorite'] = false;
                     }
                 }
-            }*/
+            }
 
             this.threadIsLoaded = true;
         } catch (error) {

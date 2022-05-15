@@ -3,27 +3,16 @@
         <h1 class=text-center> Profile</h1>
         <span v-if="userIsLoaded">
                 <div class="d-flex justify-center">
-                    <v-simple-table v-for="user in userinfo" :key="user.id">
+                    <v-simple-table>
                         <tr>
                             <th>Username:</th>
-                            <td>{{user.username}}</td>
+                            <td>{{userInfo[0].Username}}</td>
                             
                         </tr>
-                        
                         <tr>
                             <th>Email:</th>
-                            <td>{{user.email}}</td>
+                            <td>{{userInfo[0].Email}}</td>
                         </tr>
-                        
-                        <tr>
-                            <th>Stocks:</th>
-                            <td>{{user.stocks}}</td>
-                        </tr>
-                        <tr>
-                            <th>Threads:</th>
-                            <td>{{user.threads}}</td>
-                        </tr>
-
                     </v-simple-table>
                 </div>
         </span>
@@ -37,14 +26,13 @@ export default {
     name: 'Profile',
     data(){
         return{
-            userinfo: [],
+            userInfo: [],
             userId: '',
             userIsLoaded: false
         }
     },
     async created() {
         this.userId = localStorage.getItem('userId');
-        alert((this.userId))
         try {
             let usersUrl = '/readUsers';
 
@@ -53,13 +41,13 @@ export default {
                 'Content-Type': 'application/json',
             });
 
-            let users = usersResponse.data.data;
+            let users = usersResponse.data.Data;
 
             for (let i = 0; i < users.length; i++) {
-                if (users[i].UserId === this.userId) {
-                    this.userinfo.push(users[i]);
+                if (users[i].UserId === parseInt(this.userId)) {
+                    this.userInfo.push(users[i]);
                 }
-            }
+            }            
 
             this.userIsLoaded = true;
         } catch(error) {

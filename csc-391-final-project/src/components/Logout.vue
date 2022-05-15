@@ -24,7 +24,7 @@ export default {
                 let userGuid = localStorage.getItem('userGuid');
 
                 await this.$http.post(logoutUrl, {
-                    'userguid': userGuid,
+                    'UserGuid': userGuid,
                     
                 }, {
                     'Content-Type': 'application/json'
