@@ -174,7 +174,6 @@ export default {
         }
 
         let userGuid = localStorage.getItem('userGuid');
-        let userId = localStorage.getItem('userId');
 
         if (userGuid) {
             try {
@@ -184,12 +183,11 @@ export default {
                 }, {
                     headers: {
                         'Content-Type': 'application/json',
-                        'UserGuid': userGuid.toString()
+                        'userguid': userGuid.toString()
                     }
                 });
 
                 this.stockCryptoFavorites = readApiFavoritesResponse.data.Data;
-                console.log(userId);
             } catch (error) {
                 throw new Error(error);
             }

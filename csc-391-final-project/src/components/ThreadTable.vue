@@ -60,6 +60,7 @@ export default {
             ],
             search: '',
             threadData: [],
+            threadFavorites: [],
             threadIsLoaded: false,
         }
     },
@@ -109,7 +110,6 @@ export default {
             this.threadData = threadResponse.data.Data;
 
             let userGuid = localStorage.getItem('userGuid');
-            let userId = parseInt(localStorage.getItem('userId'))
 
             let threadFavoritesUrl = '/readThreadFavorites';
 
@@ -117,23 +117,15 @@ export default {
             }, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'UserGuid': userGuid
+                    'userguid': userGuid
                 }
             });
 
-            let threadFavorites = threadFavoritesResponse.data.Data;
+            let threadFavs = threadFavoritesResponse.data.Data;
 
-            for (let j = 0; j < this.threadData.length; j++) {
-                for (let i = 0; i < threadFavorites.length; i++) {
-                    console.log('Thread Data', this.threadData[j].UserId)
-                    console.log('Thread Favorites', threadFavorites[i].UserId)
-                    if (threadFavorites[i].UserId === userId) {
-                        this.threadData[j]['favorite'] = true;
-                    } else {
-                        this.threadData[j]['favorite'] = false;
-                    }
-                }
-            }
+            this.threadFavorites = threadFavs;
+
+            
 
             this.threadIsLoaded = true;
         } catch (error) {

@@ -54,7 +54,6 @@ export default {
                 let userId = loginResponse.data.UserId
                 localStorage.setItem('userGuid', userGuid)
                 localStorage.setItem('userId', userId)
-                alert(localStorage.getItem('userId'))
                 
                 this.$router.push({
                     name: 'Home'

@@ -70,12 +70,7 @@ const routes = [
     component: () =>
       import("../components/CreateResponse.vue")
   },
-  {
-    path: "/logout",
-    name: "Logout",
-    component: () =>
-      import("../components/Logout.vue")
-  }
+  
 ];
 
 const router = new VueRouter({

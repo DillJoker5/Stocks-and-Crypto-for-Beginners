@@ -3,7 +3,7 @@
         <h1 class=text-center> Profile</h1>
         <span v-if="userIsLoaded">
                 <div class="d-flex justify-center">
-                    <v-simple-table>
+                    <v-simple-table class = table>
                         <tr>
                             <th>Username:</th>
                             <td>{{userInfo[0].Username}}</td>
@@ -68,6 +68,14 @@ export default {
   justify-self: center;
   margin: 0 auto;
   margin-top: 2vh;
+}
+.table{
+       background-color: white;
+      border-style: dashed;
+      border-radius: 10px;
+      border-width: 3px;
+      margin: 3vw 3vh 3vw 3vh;
+      text-align: center; 
 }
 
 @-webkit-keyframes spin {
