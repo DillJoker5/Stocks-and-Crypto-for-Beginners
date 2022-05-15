@@ -2,19 +2,18 @@
     <div>
         <h1 class=text-center> Profile</h1>
         <span v-if="userIsLoaded">
-                <div class="d-flex justify-center">
-                    <v-simple-table class = table>
-                        <tr>
-                            <th>Username:</th>
-                            <td>{{userInfo[0].Username}}</td>
-                            
-                        </tr>
-                        <tr>
-                            <th>Email:</th>
-                            <td>{{userInfo[0].Email}}</td>
-                        </tr>
-                    </v-simple-table>
-                </div>
+            <div class="d-flex justify-center">
+                <v-simple-table class = table>
+                    <tr>
+                        <th>Username:</th>
+                        <td>{{userInfo[0].Username}}</td>    
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td>{{userInfo[0].Email}}</td>
+                    </tr>
+                </v-simple-table>
+            </div>
         </span>
         <div v-else class="loader" />
     </div>
@@ -56,6 +55,7 @@ export default {
     }
 }
 </script>
+
 <style scoped>
 .loader {
   border: 10px solid #f3f3f3;
@@ -88,4 +88,3 @@ export default {
     100% { -webkit-transform: rotate(360deg); }
 }
 </style>
-

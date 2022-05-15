@@ -1,12 +1,11 @@
 <template>
    <span>
        <h1> Login here</h1>
-            
-            <div class= 'login'>    
-                <form class="logins">
+        <div class= 'login'>    
+            <form class="logins">
                 <div>
-                <label>Username</label>
-                <input required v-model="username" type ="text" placeholder="Username" class="white-color"/>
+                    <label>Username</label>
+                    <input required v-model="username" type ="text" placeholder="Username" class="white-color"/>
                 </div>
                 <label>Password</label>
                 <input required v-model="password" type="password" placeholder="Password"/>
@@ -14,14 +13,13 @@
                 <p v-if="errorIsThrown">{{error}}</p>
                 <v-btn type="submit" class='hidden-sm-and-down' depressed @click="login">Login</v-btn>
                 <p class="forgot-password text-center">
-                <router-link to="/forgot-password">Forgot password?</router-link>
+                    <router-link to="/forgot-password">Forgot password?</router-link>
                 </p>
                 <p class="register text-center">
-                <router-link to="/register">Register?</router-link>
+                    <router-link to="/register">Register?</router-link>
                 </p>
-                </form>
-                
-            </div>
+            </form>        
+        </div>
     </span>
 </template>
 
@@ -37,7 +35,6 @@ export default {
             errorIsThrown: false,
         }
     },
-
     methods: {
         async login() {
             try {
@@ -101,4 +98,3 @@ p {
       text-align: center;
 }
 </style>
-

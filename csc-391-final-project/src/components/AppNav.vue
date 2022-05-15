@@ -35,33 +35,32 @@
             }
         },
         methods: {
-             async logout() {
-            try {
-                let logoutUrl = '/logout';
-                let userGuid = localStorage.getItem('userGuid');
+            async logout() {
+                try {
+                    let logoutUrl = '/logout';
+                    let userGuid = localStorage.getItem('userGuid');
 
-                await this.$http.post(logoutUrl, {
-                    'UserGuid': userGuid,
+                    await this.$http.post(logoutUrl, {
+                        'UserGuid': userGuid,
+                        
+                    }, {
+                        'Content-Type': 'application/json'
+                    });
+
+                    localStorage.setItem('userGuid', '');
+                    localStorage.setItem('userId', '');
                     
-                }, {
-                    'Content-Type': 'application/json'
-                });
-
-                localStorage.setItem('userGuid', '');
-                localStorage.setItem('userId', '');
-                
-                this.$router.push({
-                    name: 'Home'
-                });
-                
-                
-            } catch (error) {
-                this.error = error;
-                this.errorIsThrown = true;
-                throw new Error(error);
+                    this.$router.push({
+                        name: 'Home'
+                    });
+                    
+                    
+                } catch (error) {
+                    this.error = error;
+                    this.errorIsThrown = true;
+                    throw new Error(error);
+                }   
             }
-                
-        }
         }
     };
 </script>
@@ -73,5 +72,4 @@ a:visited {
     color: white;
     text-decoration: none;
 }
-
 </style>

@@ -15,6 +15,7 @@
  
 <script>
     export default {
+        name: 'ForgotPassword',
         data() {
             return {
                 email: "",
@@ -22,7 +23,6 @@
                 errorIsThrown: false
             }
         },
-
         methods: {
             async forgotPassword() {
                 try {

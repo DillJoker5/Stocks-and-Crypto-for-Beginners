@@ -45,7 +45,6 @@
         </v-card>
         <div v-else class="loader" />
     </div>
-   
 </template>
 
 <script>

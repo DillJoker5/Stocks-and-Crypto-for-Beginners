@@ -1,6 +1,5 @@
 <template>
     <div>
-      
         <v-form class="create-a-thread-form">
             <v-text-field
                 v-model="name"
@@ -47,9 +46,7 @@ import { required, maxLength } from 'vuelidate/lib/validators';
 
 export default {
     name: 'CreateThreadForm',
-
     mixins: [validationMixin],
-
     validations: {
         name: { required, maxLength: maxLength(50) },
         threadOwner: { required, maxLength: maxLength(50) },
@@ -120,7 +117,6 @@ export default {
                 throw new Error(error);
             }
         },
-
         clear() {
             if(this.name === '' && this.threadOwner === '' && this.description === '') {
                 this.$router.push({

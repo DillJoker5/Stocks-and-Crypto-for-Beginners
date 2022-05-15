@@ -1,16 +1,16 @@
 <template>
     <div>
-    <v-card class="v-card-border-rounded">
-        <v-card-text>Description: <input type="text" v-model="description" /></v-card-text>
+        <v-card class="v-card-border-rounded">
+            <v-card-text>Description: <input type="text" v-model="description" /></v-card-text>
+            <v-btn
+                class="mr-4"
+                @click="createResponse"
+            >Create Response</v-btn>
+        </v-card>
         <v-btn
             class="mr-4"
-            @click="createResponse"
-        >Create Response</v-btn>
-    </v-card>
-    <v-btn
-        class="mr-4"
-        @click="backtoThread"
-    >Back To Thread</v-btn>
+            @click="backtoThread"
+        >Back To Thread</v-btn>
     </div>
 </template>
 
@@ -72,7 +72,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

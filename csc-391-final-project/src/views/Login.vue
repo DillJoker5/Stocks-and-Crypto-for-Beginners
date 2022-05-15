@@ -23,7 +23,4 @@ export default {
     padding: 20px;
     font-family: cursive;
 }
-
-
-
- </style>
+</style>

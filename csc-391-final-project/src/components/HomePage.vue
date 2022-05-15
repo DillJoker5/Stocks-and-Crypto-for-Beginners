@@ -1,67 +1,67 @@
 <template>
     <div>
-    <div>
-        <h1>The latest stock and crypto news</h1>
+        <div>
+            <h1>The latest stock and crypto news</h1>
+            <hr>
+            <br>
+            <v-card v-if="tableIsLoaded">
+                <v-data-table
+                    :headers='headers'
+                    :items='stockCryptoData'
+                    :items-per-page='5'
+                    class='elevation-1 gray-darken-2--text blue lighten-3'
+                    :sort-by="[
+                        'symbol',
+                    ]"
+                    :sort-asc="[
+                        'true',
+                        'false'
+                    ]"
+                >
+                    <template v-slot:[`item.current_price`]="{ item }">
+                        <v-chip
+                            :color="getCurrentPriceColor(item)"
+                            dark
+                        >
+                            {{ item.current_price }}
+                        </v-chip>
+                    </template>
+                </v-data-table>
+            </v-card>
+            <div v-else class="loader" />
+        </div>
+        <br>
+        <h1>See the hottest threads below!</h1>
         <hr>
         <br>
-        <v-card v-if="tableIsLoaded">
-            <v-data-table
-                :headers='headers'
-                :items='stockCryptoData'
-                :items-per-page='5'
-                class='elevation-1 gray-darken-2--text blue lighten-3'
-                :sort-by="[
-                    'symbol',
-                ]"
-                :sort-asc="[
-                    'true',
-                    'false'
-                ]"
-            >
-                <template v-slot:[`item.current_price`]="{ item }">
-                    <v-chip
-                        :color="getCurrentPriceColor(item)"
-                        dark
-                    >
-                        {{ item.current_price }}
-                    </v-chip>
-                </template>
-            </v-data-table>
-        </v-card>
-        <div v-else class="loader" />
-    </div>
-    <br>
-    <h1>See the hottest threads below!</h1>
-    <hr>
-    <br>
-    <div>
-        <v-card v-if="threadIsLoaded">
-            <v-data-table
-                :headers='threadHeaders'
-                :items='threadData'
-                class='elevation-1 gray-darken-2--text blue lighten-3'
-                :sort-by="['name']"
-                :sort-asc="[
-                    'true',
-                    'false'
-                ]"
-                multi-sort
-                dense
-                @click:row="onThreadRowClick"
-            >
-                <template v-slot:[`item.favorite`]="{ item }">
-                    <input
-                        type="checkbox"
-                        v-model="item.favorite"
-                        :value="item.favorite"
-                        disabled="true" 
-                        @click="createThreadFavorite"
-                    />
-                </template>
-            </v-data-table>
-        </v-card>
-        <div class="loader" v-else />
-    </div>
+        <div>
+            <v-card v-if="threadIsLoaded">
+                <v-data-table
+                    :headers='threadHeaders'
+                    :items='threadData'
+                    class='elevation-1 gray-darken-2--text blue lighten-3'
+                    :sort-by="['name']"
+                    :sort-asc="[
+                        'true',
+                        'false'
+                    ]"
+                    multi-sort
+                    dense
+                    @click:row="onThreadRowClick"
+                >
+                    <template v-slot:[`item.favorite`]="{ item }">
+                        <input
+                            type="checkbox"
+                            v-model="item.favorite"
+                            :value="item.favorite"
+                            disabled="true" 
+                            @click="createThreadFavorite"
+                        />
+                    </template>
+                </v-data-table>
+            </v-card>
+            <div class="loader" v-else />
+        </div>
     </div>
 </template>
 
@@ -69,8 +69,8 @@
 import stockCryptoSymbolList from '../data/stockCryptoInfo.json';
 
 export default{
-    name: 'StockCryptoTable',
-        data () {
+    name: 'HomePage',
+    data () {
         return {
             headers: [
                 { text: 'Symbol', align: "start", value: 'symbol' },
@@ -195,25 +195,6 @@ export default{
             });
 
             this.threadData = threadResponse.data.Data;
-
-            /*let threadFavoritesUrl = '/readThreadFavorites';
-
-            let threadFavoritesResponse = await this.$http.post(threadFavoritesUrl, {
-            }, {
-                'Content-Type': 'application/json'
-            });
-
-            let threadFavorites = threadFavoritesResponse.data.Data;
-
-            if (this.UserGuid !== undefined) {
-                for (let j = 0; j < this.threadData.length; j++) {
-                    for (let i = 0; i < threadFavorites.length; i++) {
-                        if (threadFavorites[i].UserId === this.UserId && this.threadData.UserId === this.UserId) {
-                            this.threadData['favorite'] = true;
-                        }
-                    }
-                }
-            }*/
 
             this.threadIsLoaded = true;
         } catch (error) {
