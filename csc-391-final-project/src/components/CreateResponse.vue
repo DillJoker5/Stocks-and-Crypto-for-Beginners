@@ -1,7 +1,7 @@
 <template>
     <div>
     <v-card class="v-card-border-rounded">
-        <v-card-text>Description: <input type="text" @value="description" />></v-card-text>
+        <v-card-text>Description: <input type="text" @value="description" /></v-card-text>
         <v-btn
             class="mr-4"
             @click="createResponse"

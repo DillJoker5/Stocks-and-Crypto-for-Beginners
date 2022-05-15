@@ -12,6 +12,7 @@
             <v-btn class='hidden-sm-and-down' to='/viewStockCryptoTable' depressed>Stocks and Crypto</v-btn>
             <v-btn class='hidden-sm-and-down' to='/userProfile' depressed>User Profile</v-btn>
             <v-btn class='hidden-sm-and-down' to='/login' depressed>Login</v-btn>
+            <v-btn class='hidden-sm-and-down' to='/logout' depressed>Logout</v-btn>
         </v-app-bar>
     </span>
 </template>
@@ -29,6 +30,7 @@
                     { title: 'Stocks and Crypto', url:'viewStockCryptoTable' },
                     { title: 'User Profile', url: 'userProfile' },
                     { title: 'Register', url:'login' },
+                    { title: 'Logout', url:'logout' }
                 ]
             }
         },

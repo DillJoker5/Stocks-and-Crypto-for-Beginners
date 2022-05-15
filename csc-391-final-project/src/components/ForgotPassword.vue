@@ -1,11 +1,12 @@
 <template>
     <div>
         <h1>Forgot Password</h1>
-        <form class = 'forgotpassword' @submit.prevent="forgotPassword">
+        <form class = 'forgotpassword'>
             <div>
                 <label>Email address</label>
                 <input type="email" v-model="email"/>
                 <hr/>
+                <p v-if="errorIsThrown">{{error}}</p>
                 <v-btn type="submit" class='hidden-sm-and-down' depressed @click="forgotPassword">Reset Password</v-btn>
             </div>
         </form>
@@ -17,6 +18,8 @@
         data() {
             return {
                 email: "",
+                error: "",
+                errorIsThrown: false
             }
         },
 
@@ -31,6 +34,8 @@
                         'Content-Type': 'application/json'
                     });
                 } catch (error) {
+                    this.error = error;
+                    this.errorIsThrown = true;
                     throw new Error(error);
                 }
             }
@@ -63,5 +68,9 @@ label{
 }
 h1{
     text-align: center;
+}
+p {
+    text-align: center;
+    color: red;
 }
 </style>

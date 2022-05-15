@@ -22,6 +22,7 @@
                         <input type="password" v-model="password"/>
                     </div>
                     <hr/>
+                    <p class = "message" v-if="errorIsThrown">{{error}}</p>
                     <v-btn type="submit" class='hidden-sm-and-down' depressed @click="register">Sign Up</v-btn>
         
                     <p class="forgot-password text-center">
@@ -41,6 +42,8 @@
                 lastName: "",
                 email: "",
                 password: "",
+                error: "",
+                errorIsThrown: false,
             }
         },
         methods: {
@@ -57,9 +60,11 @@
                     });
 
                     this.$router.push({
-                        name: 'Login'
+                        name: 'Home'
                     });
                 } catch (error) {
+                    this.error = error;
+                    this.errorIsThrown = true;
                     throw new Error(error);
                 }
             }
@@ -91,5 +96,9 @@ label{
 }
 h1{
     text-align: center;
+}
+.message {
+    text-align: center;
+    color: red;
 }
 </style>

@@ -69,6 +69,12 @@ const routes = [
     name: "create-response",
     component: () =>
       import("../components/CreateResponse.vue")
+  },
+  {
+    path: "/logout",
+    name: "Logout",
+    component: () =>
+      import("../components/Logout.vue")
   }
 ];
 

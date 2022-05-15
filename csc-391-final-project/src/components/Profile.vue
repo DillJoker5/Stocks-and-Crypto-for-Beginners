@@ -43,7 +43,8 @@ export default {
         }
     },
     async created() {
-        this.userId = this.$route.params.UserId;
+        this.userId = localStorage.getItem('userId');
+        alert((this.userId))
         try {
             let usersUrl = '/readUsers';
 

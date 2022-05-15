@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p v-if="error">{{error}}</p>
+      
         <v-form class="create-a-thread-form">
             <v-text-field
                 v-model="name"
@@ -29,6 +29,7 @@
                 @input="$v.description.$touch()"
                 @blur="$v.description.$touch()"
             ></v-text-field>
+              <p v-if="error">{{error}}</p>
             <v-btn
                 class="mr-4"
                 @click="submit"
@@ -103,7 +104,7 @@ export default {
                     'DateCreated': Date.now()
                 }, {
                     'Content-Type': 'application/json',
-                    'UserGuid': userGuid.toString()
+                    'userGuid': userGuid
                 });
 
                     this.$router.push({
@@ -139,5 +140,8 @@ export default {
     border-radius: 10px;
     border-width: 3px;
     margin: 3vw 3vh 3vw 3vh;
+}
+p {
+    color: red;
 }
 </style>

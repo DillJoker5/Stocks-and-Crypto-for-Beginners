@@ -181,13 +181,9 @@ export default {
                     'UserGuid': userGuid.toString()
                 });
 
-<<<<<<< HEAD
                 this.stockCryptoFavorites = readApiFavoritesResponse.data.data;
 
                 console.log(this.stockCryptoFavorites)
-=======
-                this.stockCryptoFavorites = readApiFavoritesResponse.data.Data;
->>>>>>> 5c0ddb5c3de7781ee98bbecf8dd44d47723cc272
             } catch (error) {
                 throw new Error(error);
             }
