@@ -34,5 +34,9 @@ Finage api used for stock and crypto information. Yahoo Finance api used for ins
 * CSS
 
 # Pictures
-Will put some pictures here after CSS is done
-
+## Homepage
+![Homepage](https://github.com/DillJoker5/Stocks-and-Crypto-for-Beginners/blob/develop/csc-391-final-project/src/assets/homepage.PNG)
+## Stocks and Crypto Table
+![Table](https://github.com/DillJoker5/Stocks-and-Crypto-for-Beginners/blob/develop/csc-391-final-project/src/assets/Stockandcryptotable.PNG)
+## Login
+![Login](https://github.com/DillJoker5/Stocks-and-Crypto-for-Beginners/blob/develop/csc-391-final-project/src/assets/login.PNG)
